@@ -70,3 +70,4 @@ C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migration
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.csproj.GenerateResource.Cache
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingPaddleandPaddleTypemodels.resources
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingconventionoverrideforpaddleandpaddleType.resources
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.PopulatePaddleTypestable.resources
