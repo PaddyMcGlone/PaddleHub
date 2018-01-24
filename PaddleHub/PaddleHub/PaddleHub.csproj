@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201801241838440_Adding Paddle and PaddleType models.Designer.cs">
       <DependentUpon>201801241838440_Adding Paddle and PaddleType models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801241859482_Adding convention override for paddle and paddleType.cs" />
+    <Compile Include="Migrations\201801241859482_Adding convention override for paddle and paddleType.Designer.cs">
+      <DependentUpon>201801241859482_Adding convention override for paddle and paddleType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -289,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801241838440_Adding Paddle and PaddleType models.resx">
       <DependentUpon>201801241838440_Adding Paddle and PaddleType models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801241859482_Adding convention override for paddle and paddleType.resx">
+      <DependentUpon>201801241859482_Adding convention override for paddle and paddleType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

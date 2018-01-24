@@ -1,4 +1,6 @@
-﻿namespace PaddleHub.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PaddleHub.Models
 {
     public class PaddleType
     {
@@ -10,6 +12,8 @@
         /// <summary>
         /// Paddle type name.
         /// </summary>
+        [Required]
+        [StringLength(255)]
         public string Name { get; set; }
     }
 }
