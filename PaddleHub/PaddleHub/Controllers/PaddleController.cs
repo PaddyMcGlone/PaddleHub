@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace PaddleHub.Controllers
 {
-    public class GigsController : Controller
+    public class PaddleController : Controller
     {
         // GET: Gigs
-        public ActionResult Index()
+        public ActionResult Create()
         {
             return View();
         }
