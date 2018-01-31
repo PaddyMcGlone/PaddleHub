@@ -5,7 +5,7 @@ namespace PaddleHub.ViewModels
     {
         #region Properties
 
-        public string Venue { get; set; }
+        public string Location { get; set; }
 
         public string Date { get; set; }
 
