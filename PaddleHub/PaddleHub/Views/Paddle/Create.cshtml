@@ -21,4 +21,9 @@
         @Html.LabelFor(m => m.Time)
         @Html.TextBoxFor(m => m.Time, new { @class = "form-control" })
     </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.PaddleType)
+        @Html.DropDownListFor(m => m.PaddleType, new SelectList(Model.PaddleTypes, "Id", "Name"))
+    </div>
 </form>
