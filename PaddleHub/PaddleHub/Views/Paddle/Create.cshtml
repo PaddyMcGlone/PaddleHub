@@ -24,6 +24,6 @@
     
     <div class="form-group">
         @Html.LabelFor(m => m.PaddleType)
-        @Html.DropDownListFor(m => m.PaddleType, new SelectList(Model.PaddleTypes, "Id", "Name"))
+        @Html.DropDownListFor(m => m.PaddleType, new SelectList(Model.PaddleTypes, "Id", "Name"),"", new { @class="form-control"})
     </div>
 </form>

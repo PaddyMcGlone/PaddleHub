@@ -1,17 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PaddleHub.Models;
+using PaddleHub.ViewModels;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PaddleHub.Controllers
 {
     public class PaddleController : Controller
     {
+        private ApplicationDbContext context;
+
+        public PaddleController()
+        {
+            context = new ApplicationDbContext();
+        }
+
         // GET: Gigs
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new PaddleFormViewModel
+            {
+                PaddleTypes = context.PaddleTypes.ToList()
+            };
+
+            return View(viewModel);
         }
     }
 }
