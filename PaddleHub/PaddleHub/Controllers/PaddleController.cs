@@ -14,7 +14,7 @@ namespace PaddleHub.Controllers
             context = new ApplicationDbContext();
         }
 
-        // GET: Gigs
+        [Authorize]
         public ActionResult Create()
         {
             var viewModel = new PaddleFormViewModel
