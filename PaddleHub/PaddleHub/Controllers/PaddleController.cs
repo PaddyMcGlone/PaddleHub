@@ -7,7 +7,7 @@ namespace PaddleHub.Controllers
 {
     public class PaddleController : Controller
     {
-        private ApplicationDbContext context;
+        private readonly ApplicationDbContext context;
 
         public PaddleController()
         {
