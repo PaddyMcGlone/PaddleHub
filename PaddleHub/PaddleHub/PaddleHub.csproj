@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201802041430439_Adding Foreign Keys to Paddle model.Designer.cs">
       <DependentUpon>201802041430439_Adding Foreign Keys to Paddle model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802041505021_Updating data annotations on the paddle model.cs" />
+    <Compile Include="Migrations\201802041505021_Updating data annotations on the paddle model.Designer.cs">
+      <DependentUpon>201802041505021_Updating data annotations on the paddle model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -313,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802041430439_Adding Foreign Keys to Paddle model.resx">
       <DependentUpon>201802041430439_Adding Foreign Keys to Paddle model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802041505021_Updating data annotations on the paddle model.resx">
+      <DependentUpon>201802041505021_Updating data annotations on the paddle model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

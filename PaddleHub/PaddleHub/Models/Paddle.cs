@@ -12,8 +12,7 @@ namespace PaddleHub.Models
 
         /// <summary>
         /// The paddle organiser.
-        /// </summary>
-        [Required]
+        /// </summary>        
         public ApplicationUser Paddler { get; set; }
 
         /// <summary>
@@ -31,7 +30,6 @@ namespace PaddleHub.Models
         /// <summary>
         /// The type of paddle.
         /// </summary>
-        [Required]
         public PaddleType PaddleType { get; set; }
 
 
@@ -40,12 +38,14 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets ApplicationUser foreign key 
         /// </summary>
+        [Required]
         public string PaddlerId { get; set; }
 
 
         /// <summary>
         /// Gets or sets PaddleType foreign key
         /// </summary>
+        [Required]
         public byte PaddleTypeId { get; set; }
 
         #endregion
