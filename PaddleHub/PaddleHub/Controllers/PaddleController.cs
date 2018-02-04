@@ -26,7 +26,7 @@ namespace PaddleHub.Controllers
             return View(viewModel);
         }
 
-        [Authorize]
+        [HttpPost, Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PaddleFormViewModel viewModel)
         {
@@ -49,12 +49,16 @@ namespace PaddleHub.Controllers
         /// <returns></returns>
         private Paddle MapPaddle(PaddleFormViewModel viewModel)
         {
+            var userId = User.Identity.GetUserId();
+            var user = context.Users.Single(u => u.Id == userId);
+            var type = context.PaddleTypes.Single(t => t.Id == viewModel.PaddleType);
+
             return new Paddle
             {
-                Paddler = new ApplicationUser { Id = User.Identity.GetUserId() },
-                DateTime = viewModel.PaddleDateTime(),
-                Location = viewModel.Location,
-                PaddleType = new PaddleType { Id = viewModel.PaddleType }
+                Paddler    = user,
+                DateTime   = viewModel.PaddleDateTime(),
+                Location   = viewModel.Location,
+                PaddleType = type
             };
         }
 
