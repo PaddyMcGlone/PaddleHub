@@ -49,16 +49,12 @@ namespace PaddleHub.Controllers
         /// <returns></returns>
         private Paddle MapPaddle(PaddleFormViewModel viewModel)
         {
-            var userId = User.Identity.GetUserId();
-            var user = context.Users.Single(u => u.Id == userId);
-            var type = context.PaddleTypes.Single(t => t.Id == viewModel.PaddleType);
-
             return new Paddle
             {
-                Paddler    = user,
-                DateTime   = viewModel.PaddleDateTime(),
-                Location   = viewModel.Location,
-                PaddleType = type
+                PaddlerId    = User.Identity.GetUserId(),
+                PaddleTypeId = viewModel.PaddleType,
+                DateTime     = viewModel.PaddleDateTime(),
+                Location     = viewModel.Location,
             };
         }
 
