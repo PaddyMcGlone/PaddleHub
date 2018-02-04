@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201801242046573_Populate Paddle Types table.Designer.cs">
       <DependentUpon>201801242046573_Populate Paddle Types table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802041430439_Adding Foreign Keys to Paddle model.cs" />
+    <Compile Include="Migrations\201802041430439_Adding Foreign Keys to Paddle model.Designer.cs">
+      <DependentUpon>201802041430439_Adding Foreign Keys to Paddle model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -306,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801242046573_Populate Paddle Types table.resx">
       <DependentUpon>201801242046573_Populate Paddle Types table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802041430439_Adding Foreign Keys to Paddle model.resx">
+      <DependentUpon>201802041430439_Adding Foreign Keys to Paddle model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

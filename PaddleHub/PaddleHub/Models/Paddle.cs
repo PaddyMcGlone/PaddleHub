@@ -34,5 +34,20 @@ namespace PaddleHub.Models
         [Required]
         public PaddleType PaddleType { get; set; }
 
+
+        #region Foreign Keys
+
+        /// <summary>
+        /// Gets or sets ApplicationUser foreign key 
+        /// </summary>
+        public string PaddlerId { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets PaddleType foreign key
+        /// </summary>
+        public byte PaddleTypeId { get; set; }
+
+        #endregion
     }
 }
