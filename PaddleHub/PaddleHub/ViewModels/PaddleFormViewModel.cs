@@ -49,7 +49,7 @@ namespace PaddleHub.ViewModels
         public DateTime PaddleDateTime()
         {
             DateTime result;
-            DateTime.TryParseExact(Date + " " + Time, "g", CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
+            DateTime.TryParseExact(string.Format("{0} {1}", Date, Time), "g", CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
 
             return result;
         }
