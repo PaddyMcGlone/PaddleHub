@@ -30,7 +30,11 @@ namespace PaddleHub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PaddleFormViewModel viewModel)
         {
-            if (!ModelState.IsValid) return View("Create", viewModel);
+            if (!ModelState.IsValid)
+            {
+                viewModel.PaddleTypes = context.PaddleTypes.ToList();
+                return View("Create", viewModel);
+            }
             
             var paddle = MapPaddle(viewModel);
 
