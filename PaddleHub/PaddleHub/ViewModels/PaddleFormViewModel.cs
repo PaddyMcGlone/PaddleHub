@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 namespace PaddleHub.ViewModels
@@ -12,24 +13,27 @@ namespace PaddleHub.ViewModels
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
+        [Required]
         public string Location { get; set; }
-
 
         /// <summary>
         /// Gets or sets the date.
         /// </summary>
+        [Required]
         public string Date { get; set; }
 
 
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
+        [Required]
         public string Time { get; set; }
         
 
         /// <summary>
         /// Gets or sets the paddletype.
         /// </summary>
+        [Required]
         public byte PaddleType { get; set; }
 
 
