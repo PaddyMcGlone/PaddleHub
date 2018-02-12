@@ -76,11 +76,17 @@ namespace PaddleHub.ViewModels
             DateTime.TryParse(Date, out date);
 
             if (date == DateTime.MinValue)
-                validationResult.Add(new ValidationResult("Invalid date format", new[] { "Date" }));
+            {
+                validationResult.Add(new ValidationResult("Invalid date format, please retry", new[] { "Date" }));
+                return validationResult;
+            }
 
             if (date < DateTime.Today)
+            {
                 validationResult.Add(new ValidationResult("Date must not be in the past", new[] { "Date" }));
-
+                return validationResult;
+            }
+                
             return validationResult;            
         }        
     }
