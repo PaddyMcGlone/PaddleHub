@@ -63,12 +63,11 @@ C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\Microsoft.Owin.Security.O
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\Microsoft.Owin.Security.Google.xml
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.csprojResolveAssemblyReference.cache
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.Addinginitialmigration.resources
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingPaddleandPaddleTypemodels.resources
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingconventionoverrideforpaddleandpaddleType.resources
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.PopulatePaddleTypestable.resources
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingForeignKeystoPaddlemodel.resources
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.csproj.GenerateResource.Cache
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.dll
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.pdb
-C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingForeignKeystoPaddlemodel.resources

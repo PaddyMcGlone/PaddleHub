@@ -1,12 +1,13 @@
-﻿
+﻿using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 namespace PaddleHub.ViewModels
 {
-    public class PaddleFormViewModel
+    public class PaddleFormViewModel : IValidatableObject
     {
         #region Properties
         
@@ -59,5 +60,28 @@ namespace PaddleHub.ViewModels
         }
 
         #endregion
+        
+        /// <summary>
+        /// Validate the current object state.
+        /// </summary>
+        /// <param name="validationContext"></param>
+        /// <returns></returns>
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Date.IsNullOrWhiteSpace()) throw new ArgumentNullException("Date");
+
+            var validationResult = new List<ValidationResult>();
+
+            DateTime date;
+            DateTime.TryParse(Date, out date);
+
+            if (date == DateTime.MinValue)
+                validationResult.Add(new ValidationResult("Invalid date format", new[] { "Date" }));
+
+            if (date < DateTime.Today)
+                validationResult.Add(new ValidationResult("Date must not be in the past", new[] { "Date" }));
+
+            return validationResult;            
+        }        
     }
 }
