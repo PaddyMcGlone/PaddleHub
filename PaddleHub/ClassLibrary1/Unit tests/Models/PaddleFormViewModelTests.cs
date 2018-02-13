@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace PaddleHub.Unit_tests
+namespace ClassLibrary1.Unit_tests.Models
 {    
     #region ValidDate()
     
