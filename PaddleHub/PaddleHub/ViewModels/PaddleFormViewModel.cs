@@ -1,5 +1,4 @@
-﻿using Microsoft.Ajax.Utilities;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -68,26 +67,25 @@ namespace PaddleHub.ViewModels
         /// <returns></returns>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (Date.IsNullOrWhiteSpace()) throw new ArgumentNullException("Date");
+            DateTime parsedDate;
+            DateTime.TryParse(Date, out parsedDate);
+            var inValidDate = parsedDate == DateTime.MinValue;
+            var dateInPast = !inValidDate && parsedDate < DateTime.Today;
 
-            var validationResult = new List<ValidationResult>();
+            DateTime parsedTime;
+            DateTime.TryParseExact(Time, "HH:mm", CultureInfo.CurrentCulture, DateTimeStyles.None, out parsedTime);
+            var inValidTime = parsedTime == DateTime.MinValue;
+            var pastBedTime = !inValidTime; 
 
-            DateTime date;
-            DateTime.TryParse(Date, out date);
+            
+            if (inValidDate)
+                yield return new ValidationResult("Invalid date format, please retry", new[] { "Date" });
 
-            if (date == DateTime.MinValue)
-            {
-                validationResult.Add(new ValidationResult("Invalid date format, please retry", new[] { "Date" }));
-                return validationResult;
-            }
+            if (dateInPast)
+                yield return new ValidationResult("Date must not be in the past", new[] { "Date" });
 
-            if (date < DateTime.Today)
-            {
-                validationResult.Add(new ValidationResult("Date must not be in the past", new[] { "Date" }));
-                return validationResult;
-            }
-                
-            return validationResult;            
+            if (inValidTime)
+                yield return new ValidationResult("Invalid time format, please retry", new [] { "Time" });
         }        
     }
 }

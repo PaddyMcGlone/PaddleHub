@@ -16,11 +16,9 @@ C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Owin.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Microsoft.Owin.Security.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Microsoft.Owin.Security.Cookies.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\WebGrease.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Razor.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.WebPages.dll
-C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Antlr3.Runtime.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\PaddleHub.pdb
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Microsoft.AspNet.Identity.Core.xml
@@ -36,7 +34,6 @@ C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Microsoft.Owin.
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Razor.xml
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.WebPages.xml
-C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Antlr3.Runtime.pdb
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\obj\Debug\PaddleHub.Tests.csprojResolveAssemblyReference.cache
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\obj\Debug\ClassLibrary1.dll
