@@ -56,9 +56,7 @@ namespace PaddleHub.ViewModels
             DateTime.TryParseExact(string.Format("{0} {1}", Date, Time), "g", CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
 
             return result;
-        }
-
-        #endregion
+        }        
         
         /// <summary>
         /// Validate the current object state.
@@ -75,9 +73,7 @@ namespace PaddleHub.ViewModels
             DateTime parsedTime;
             DateTime.TryParseExact(Time, "HH:mm", CultureInfo.CurrentCulture, DateTimeStyles.None, out parsedTime);
             var inValidTime = parsedTime == DateTime.MinValue;
-            var pastBedTime = !inValidTime; 
 
-            
             if (inValidDate)
                 yield return new ValidationResult("Invalid date format, please retry", new[] { "Date" });
 
@@ -86,6 +82,8 @@ namespace PaddleHub.ViewModels
 
             if (inValidTime)
                 yield return new ValidationResult("Invalid time format, please retry", new [] { "Time" });
-        }        
+        }
+
+        #endregion
     }
 }
