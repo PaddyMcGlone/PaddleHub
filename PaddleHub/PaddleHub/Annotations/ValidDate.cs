@@ -4,6 +4,9 @@ using System.Globalization;
 
 namespace PaddleHub.Annotations
 {
+    /// <summary>
+    /// Data annotation for date validation
+    /// </summary>
     public class ValidDate : ValidationAttribute
     {
         public override bool IsValid(object value)
