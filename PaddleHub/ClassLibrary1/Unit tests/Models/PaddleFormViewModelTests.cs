@@ -144,6 +144,28 @@ namespace ClassLibrary1.Unit_tests.Models
         It Should_not_return_any_validation_errors = () =>
             results.ShouldBeEmpty();
     }
+    
+    [Subject("Validate time")]
+    public class when_I_call_Validate_with_an_invalid_time
+    {
+        static PaddleFormViewModel viewModel;
+        static List<ValidationResult> results;
+
+        Establish context = () =>
+        {
+            viewModel = new PaddleFormViewModel
+            {
+                Date = DateTime.Today.ToString("d"),
+                Time = "foo"
+            };
+        };
+
+        Because of = () =>
+            results = viewModel.Validate(new ValidationContext(viewModel)).ToList();
+
+        It should_return_a_validation_error_for_time = () =>
+            results[0].ErrorMessage.ShouldEqual("Invalid time format, please retry");
+    }
 
     #endregion
 }
