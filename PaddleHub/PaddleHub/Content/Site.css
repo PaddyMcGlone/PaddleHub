@@ -25,6 +25,8 @@ textarea {
 
 /* Bootstrap overrides */
 
+
+/* Navbar styles*/
 .navbar-inverse {
     background-color: #4cbb17;
     border-color: #4cbb17;
@@ -36,6 +38,12 @@ textarea {
 
 .navbar-inverse .navbar-brand {
     color: white;
+}
+
+/* Font styles*/
+
+body {
+    font-size: 17px;
 }
 
 body,
@@ -52,4 +60,24 @@ h6,
 .h5,
 .h6 {
     font-family: Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;    
+}
+
+/* Form styles */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-control {
+    font-size: 16px;
+    padding: 20px 15px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
 }
