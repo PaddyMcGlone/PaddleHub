@@ -110,3 +110,7 @@ h6,
     border-radius: 9px;
 }
 
+.form-group .field-validation-error {
+    color: red;    
+}
+
