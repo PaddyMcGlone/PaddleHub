@@ -14,7 +14,7 @@ namespace PaddleHub.Controllers
         {
             context = new ApplicationDbContext();
         }
-
+        
         [Authorize]
         public ActionResult Create()
         {
@@ -32,6 +32,7 @@ namespace PaddleHub.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.Alert = "Please review the following error messages shown below.";
                 viewModel.PaddleTypes = context.PaddleTypes.ToList();
                 return View("Create", viewModel);
             }
