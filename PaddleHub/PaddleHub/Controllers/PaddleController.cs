@@ -14,7 +14,7 @@ namespace PaddleHub.Controllers
         {
             context = new ApplicationDbContext();
         }
-
+        
         [Authorize]
         public ActionResult Create()
         {
@@ -31,7 +31,7 @@ namespace PaddleHub.Controllers
         public ActionResult Create(PaddleFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
-            {
+            {             
                 viewModel.PaddleTypes = context.PaddleTypes.ToList();
                 return View("Create", viewModel);
             }
