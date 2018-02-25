@@ -4,17 +4,17 @@
     ViewBag.Title = "Add a Paddle";
 }
 
-<h2>Create</h2>
+<h2>Create a new paddle</h2>
 
 @using (@Html.BeginForm("Create", "Paddle"))
 {
     @Html.AntiForgeryToken()
-
-    //This error message should become a shared item
-    if (ViewBag.Alert != null)
-    {
+    
+    if (!ViewData.ModelState.IsValid)
+    {        
         <div class="alert alert-danger" role="alert">
-            @ViewBag.Alert
+            Please review the following error messages:
+            @Html.ValidationSummary()
         </div>
     }
 

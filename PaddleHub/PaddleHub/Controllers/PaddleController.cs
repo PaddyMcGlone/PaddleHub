@@ -31,8 +31,7 @@ namespace PaddleHub.Controllers
         public ActionResult Create(PaddleFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
-            {
-                ViewBag.Alert = "Please review the following error messages shown below.";
+            {             
                 viewModel.PaddleTypes = context.PaddleTypes.ToList();
                 return View("Create", viewModel);
             }
