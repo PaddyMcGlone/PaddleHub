@@ -20,7 +20,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Location)
-        @Html.TextBoxFor(m => m.Location, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Location, new { @class = "form-control", autofocus = "autofocus" })
         @Html.ValidationMessageFor(m => m.Location)
     </div>
 
