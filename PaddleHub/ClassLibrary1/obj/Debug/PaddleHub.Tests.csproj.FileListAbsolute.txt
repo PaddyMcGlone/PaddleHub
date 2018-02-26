@@ -38,3 +38,6 @@ C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.WebP
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\obj\Debug\PaddleHub.Tests.csprojResolveAssemblyReference.cache
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Helpers.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Helpers.xml

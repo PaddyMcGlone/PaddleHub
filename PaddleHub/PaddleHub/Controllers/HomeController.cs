@@ -1,16 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PaddleHub.Models;
+using System;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PaddleHub.Controllers
 {
     public class HomeController : Controller
     {
+        public ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var upcomingPaddles = _context.Paddles
+                    .Include(p => p.Paddler)
+                    .Where(p => p.DateTime > DateTime.Now);
+
+            return View(upcomingPaddles);
         }
 
         public ActionResult About()
