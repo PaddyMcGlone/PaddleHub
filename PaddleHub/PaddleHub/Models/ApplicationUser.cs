@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -14,12 +15,16 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the user first name
         /// </summary>
+        [Required]
+        [StringLength(100)]
         public string FirstName { get; set; }
 
 
         /// <summary>
         /// Gets or sets the user last name
         /// </summary>
+        [Required]
+        [StringLength(100)]
         public string LastName { get; set; }
 
         #endregion

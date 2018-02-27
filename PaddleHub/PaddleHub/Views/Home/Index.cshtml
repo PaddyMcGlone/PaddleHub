@@ -7,7 +7,7 @@
     @foreach (var paddle in Model)
     {
         <li>
-            @paddle.DateTime - @paddle.Paddler.UserName
+            @paddle.DateTime - @paddle.Paddler.Name()
         </li>
     }
 </Ul>
