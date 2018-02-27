@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201802041430439_Adding Foreign Keys to Paddle model.Designer.cs">
       <DependentUpon>201802041430439_Adding Foreign Keys to Paddle model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802271937594_Adding user name properties to the user class.cs" />
+    <Compile Include="Migrations\201802271937594_Adding user name properties to the user class.Designer.cs">
+      <DependentUpon>201802271937594_Adding user name properties to the user class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -318,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802041430439_Adding Foreign Keys to Paddle model.resx">
       <DependentUpon>201802041430439_Adding Foreign Keys to Paddle model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802271937594_Adding user name properties to the user class.resx">
+      <DependentUpon>201802271937594_Adding user name properties to the user class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
