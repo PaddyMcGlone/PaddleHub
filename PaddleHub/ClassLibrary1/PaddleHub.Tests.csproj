@@ -7,8 +7,8 @@
     <ProjectGuid>{914E6E1C-1D17-46FD-9DD8-1C63FBDA7E80}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>PaddleHubTests</RootNamespace>
+    <AssemblyName>PaddleHubTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
