@@ -7,7 +7,22 @@
     @foreach (var paddle in Model)
     {
         <li>
-            @paddle.DateTime - @paddle.Paddler.Name()
+            <div class="date">
+                <div class="month">
+                    @paddle.DateTime.ToString("MMM")
+                </div>
+                <div clas="day">
+                    @paddle.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">
+                <span class="Paddler">
+                    @paddle.Paddler.Name()
+                </span>
+                <span class="type">
+                    @paddle.PaddleType
+                </span>
+            </div>
         </li>
     }
 </Ul>
