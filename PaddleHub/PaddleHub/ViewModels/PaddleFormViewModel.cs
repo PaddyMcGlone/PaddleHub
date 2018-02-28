@@ -52,10 +52,7 @@ namespace PaddleHub.ViewModels
         /// <returns></returns>
         public DateTime PaddleDateTime()
         {
-            DateTime result;
-            DateTime.TryParseExact(string.Format("{0} {1}", Date, Time), "g", CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
-
-            return result;
+            return DateTime.Parse(string.Format("{0} {1}", Date, Time));
         }        
         
         /// <summary>
