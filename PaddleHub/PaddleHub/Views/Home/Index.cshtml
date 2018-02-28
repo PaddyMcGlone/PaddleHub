@@ -3,7 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<Ul>
+<Ul class="paddles">
     @foreach (var paddle in Model)
     {
         <li>
@@ -11,16 +11,16 @@
                 <div class="month">
                     @paddle.DateTime.ToString("MMM")
                 </div>
-                <div clas="day">
+                <div class="day">
                     @paddle.DateTime.ToString("d ")
                 </div>
             </div>
             <div class="details">
-                <span class="Paddler">
+                <span class="paddler">
                     @paddle.Paddler.Name()
                 </span>
                 <span class="type">
-                    @paddle.PaddleType
+                    @paddle.PaddleType.Name
                 </span>
             </div>
         </li>
