@@ -151,10 +151,19 @@ h6,
     position: absolute;
     top: 0;
     left: 100px;
-}
+}    
 
     .paddles > li .details .paddler {
         font-weight: bold;
         display: block;
+    }
+
+    .paddles > li .details .location {        
+        display: block;
+        font-size: 14px
+    }
+
+    .paddles > li .details .type {        
+        font-size: 14px
     }
 
