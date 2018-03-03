@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PaddleHub.ViewModels
 {
@@ -8,6 +9,7 @@ namespace PaddleHub.ViewModels
         /// Gets or sets first name
         /// </summary>
         [Required]
+        [StringLength(30)]
         [Display(Name = "First name")]
         public string FirstName { get; set; }
 
@@ -15,8 +17,37 @@ namespace PaddleHub.ViewModels
         /// Gets or sets last name
         /// </summary>
         [Required]
+        [StringLength(30)]
         [Display(Name = "Last name")]
         public string LastName { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Date of birth")]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "Address line 1")]
+        public string AddressLine1 { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "Address line 2")]
+        public string AddressLine2 { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Display(Name = "Address line 3")]
+        public string AddressLine3 { get; set; }
+
+        [Required]
+        [StringLength(4)]
+        [Display(Name = "CANI Membership number")]
+        public string CANIMembershipNumber { get; set; }
+
+        [Display(Name = "Medical details")]
+        public string MedicalDetails { get; set; }
 
         /// <summary>
         // Gets or sets email

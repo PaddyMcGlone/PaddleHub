@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201802271947468_Updating Application user properties.Designer.cs">
       <DependentUpon>201802271947468_Updating Application user properties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803031048576_Updating the user domain model to contain required cani data.cs" />
+    <Compile Include="Migrations\201803031048576_Updating the user domain model to contain required cani data.Designer.cs">
+      <DependentUpon>201803031048576_Updating the user domain model to contain required cani data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -340,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802271947468_Updating Application user properties.resx">
       <DependentUpon>201802271947468_Updating Application user properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803031048576_Updating the user domain model to contain required cani data.resx">
+      <DependentUpon>201803031048576_Updating the user domain model to contain required cani data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
