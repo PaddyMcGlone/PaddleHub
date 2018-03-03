@@ -65,6 +65,14 @@ namespace PaddleHub.Models
         public string AddressLine3 { get; set; }
 
         /// <summary>
+        /// Gets or sets address line 3
+        /// </summary>
+        [Required]
+        [StringLength(8)]
+        [Display(Name = "Postcode")]
+        public string Postcode { get; set; }
+
+        /// <summary>
         /// Gets or sets the users cani number
         /// </summary>
         [Required]

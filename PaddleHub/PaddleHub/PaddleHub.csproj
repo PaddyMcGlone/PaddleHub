@@ -231,12 +231,17 @@
     <Compile Include="Migrations\201803031048576_Updating the user domain model to contain required cani data.Designer.cs">
       <DependentUpon>201803031048576_Updating the user domain model to contain required cani data.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803031213317_Adding postcode to register page.cs" />
+    <Compile Include="Migrations\201803031213317_Adding postcode to register page.Designer.cs">
+      <DependentUpon>201803031213317_Adding postcode to register page.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Paddle.cs" />
     <Compile Include="Models\PaddleType.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
@@ -347,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803031048576_Updating the user domain model to contain required cani data.resx">
       <DependentUpon>201803031048576_Updating the user domain model to contain required cani data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803031213317_Adding postcode to register page.resx">
+      <DependentUpon>201803031213317_Adding postcode to register page.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -42,6 +42,11 @@ namespace PaddleHub.ViewModels
         public string AddressLine3 { get; set; }
 
         [Required]
+        [StringLength(30)]
+        [Display(Name = "Postcode")]
+        public string Postcode { get; set; }
+
+        [Required]
         [StringLength(4)]
         [Display(Name = "CANI Membership number")]
         public string CANIMembershipNumber { get; set; }

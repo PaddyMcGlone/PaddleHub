@@ -9,14 +9,14 @@ namespace PaddleHub.Models
         #region Properties
 
         /// <summary>
-        /// The Paddles DBSet
+        /// Gets or sets the paddles
         /// </summary>
         public DbSet<Paddle> Paddles { get; set; }
 
         /// <summary>
-        /// The PaddleTypes Dbset
+        /// Gets or sets the paddle types
         /// </summary>
-        public DbSet<PaddleType> PaddleTypes { get; set; }
+        public DbSet<PaddleType> PaddleTypes { get; set; }        
 
         #endregion
 
