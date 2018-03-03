@@ -25,7 +25,6 @@ namespace PaddleHub.ViewModels
         /// Gets or sets the date of birth
         /// </summary>
         [Required]
-        [DataType(DataType.Date)]
         [Display(Name = "Date of birth")]
         public DateTime DateOfBirth { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -27,11 +28,13 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the user details ID foreign key
         /// </summary>
+        [Required]
         public int UserDetailsId { get; set; } 
 
         /// <summary>
         /// Gets or sets the Address ID foreign key
         /// </summary>
+        [Required]
         public int AddressId { get; set; }
 
         #endregion

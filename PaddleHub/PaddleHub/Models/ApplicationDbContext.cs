@@ -9,18 +9,18 @@ namespace PaddleHub.Models
         #region Properties
 
         /// <summary>
-        /// Gets or sets the paddles
+        /// Gets or sets the paddles.
         /// </summary>
         public DbSet<Paddle> Paddles { get; set; }
 
         /// <summary>
-        /// Gets or sets the paddle types
+        /// Gets or sets the paddle types.
         /// </summary>
         public DbSet<PaddleType> PaddleTypes { get; set; }
 
 
         /// <summary>
-        /// Gets or sets the users address
+        /// Gets or sets the users address.
         /// </summary>
         public DbSet<UserAddress> Addresses { get; set; }
 

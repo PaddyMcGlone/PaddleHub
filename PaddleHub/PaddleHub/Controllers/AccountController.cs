@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using UserDetails = PaddleHub.Models.UserDetails;
 
 namespace PaddleHub.Controllers
 {
@@ -15,15 +16,17 @@ namespace PaddleHub.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly ApplicationDbContext _context;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
-            SignInManager = signInManager;
+            SignInManager = signInManager;            
         }
 
         public ApplicationSignInManager SignInManager
@@ -148,23 +151,21 @@ namespace PaddleHub.Controllers
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
-
-            var user = new ApplicationUser
-            {                
-                UserName  = model.Email, 
-                Email     = model.Email
-            };
-
+            
+            var user = MapApplicationUser(model);
             var result = await UserManager.CreateAsync(user, model.Password);
+
             if (result.Succeeded)
             {
-                await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);                
+
+                #region Hidden MS comment
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                 // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                #endregion
 
                 return RedirectToAction("Index", "Home");
             }
@@ -173,6 +174,7 @@ namespace PaddleHub.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        
 
         //
         // GET: /Account/ConfirmEmail
@@ -426,6 +428,32 @@ namespace PaddleHub.Controllers
         }
 
         #region Helpers
+
+        private ApplicationUser MapApplicationUser(RegisterViewModel model)
+        {
+            var user = new ApplicationUser
+            {
+                UserName    = model.Email,
+                Email       = model.Email,
+                UserDetails = new UserDetails
+                {
+                    FirstName            = model.FirstName,
+                    LastName             = model.LastName,
+                    CANIMembershipNumber = model.CANIMembershipNumber,
+                    DateOfBirth          = model.DateOfBirth,
+                    MedicalDetails       = model.MedicalDetails
+                },
+                Address = new UserAddress
+                {
+                    AddressLine1 = model.AddressLine1,
+                    AddressLine2 = model.AddressLine2,
+                    AddressLine3 = model.AddressLine3,
+                    Postcode     = model.Postcode
+                }
+            };
+            return user;
+        }
+
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 

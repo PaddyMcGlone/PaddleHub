@@ -19,6 +19,7 @@ namespace PaddleHub.Controllers
         {
             var upcomingPaddles = _context.Paddles
                     .Include(p => p.Paddler)
+                    .Include(p => p.Paddler.UserDetails)
                     .Include(p => p.PaddleType)
                     .Where(p => p.DateTime > DateTime.Now);
 
