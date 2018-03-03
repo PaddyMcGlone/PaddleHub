@@ -21,36 +21,59 @@ namespace PaddleHub.ViewModels
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the date of birth
+        /// </summary>
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Date of birth")]
         public DateTime DateOfBirth { get; set; }
 
+
+        /// <summary>
+        /// Gets or sets address line 1
+        /// </summary>
         [Required]
         [StringLength(30)]
         [Display(Name = "Address line 1")]
         public string AddressLine1 { get; set; }
 
+
+        /// <summary>
+        /// Gets or sets address line 2
+        /// </summary>
         [Required]
         [StringLength(30)]
         [Display(Name = "Address line 2")]
         public string AddressLine2 { get; set; }
 
+        /// <summary>
+        /// Gets or sets address line 3
+        /// </summary>
         [Required]
         [StringLength(30)]
         [Display(Name = "Address line 3")]
         public string AddressLine3 { get; set; }
 
+        /// <summary>
+        /// Gets or sets postcode
+        /// </summary>
         [Required]
         [StringLength(30)]
         [Display(Name = "Postcode")]
         public string Postcode { get; set; }
 
+        /// <summary>
+        /// Gets or sets the cani membership number
+        /// </summary>
         [Required]
         [StringLength(4)]
         [Display(Name = "CANI Membership number")]
         public string CANIMembershipNumber { get; set; }
 
+        /// <summary>
+        /// Gets or sets the medical details
+        /// </summary>
         [Display(Name = "Medical details")]
         public string MedicalDetails { get; set; }
 
