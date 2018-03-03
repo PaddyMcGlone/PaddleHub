@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit tests\Controllers\AccountControllerTests.cs" />
     <Compile Include="Unit tests\Controllers\HomeControllerTests.cs" />
     <Compile Include="Unit tests\Models\PaddleFormViewModelTests.cs" />
   </ItemGroup>
