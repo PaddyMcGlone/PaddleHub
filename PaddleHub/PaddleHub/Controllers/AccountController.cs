@@ -2,11 +2,11 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PaddleHub.Models;
+using PaddleHub.ViewModels;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using PaddleHub.ViewModels;
 
 namespace PaddleHub.Controllers
 {
@@ -150,9 +150,7 @@ namespace PaddleHub.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var user = new ApplicationUser
-            {
-                FirstName = model.FirstName,
-                LastName  = model.LastName,
+            {                
                 UserName  = model.Email, 
                 Email     = model.Email
             };

@@ -16,7 +16,13 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the paddle types
         /// </summary>
-        public DbSet<PaddleType> PaddleTypes { get; set; }        
+        public DbSet<PaddleType> PaddleTypes { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the users address
+        /// </summary>
+        public DbSet<UserAddress> Addresses { get; set; }
 
         #endregion
 
