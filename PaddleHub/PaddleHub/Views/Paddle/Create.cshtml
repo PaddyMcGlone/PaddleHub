@@ -4,6 +4,7 @@
     ViewBag.Title = "Add a Paddle";
 }
 
+
 <h2>Create a new paddle</h2>
 
 @using (@Html.BeginForm("Create", "Paddle"))
@@ -26,7 +27,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Date, new { @class = "form-control", id = "datepicker" })
         @Html.ValidationMessageFor(m => m.Date)
     </div>
     
@@ -48,4 +49,12 @@
 
 @section scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>    
 }
