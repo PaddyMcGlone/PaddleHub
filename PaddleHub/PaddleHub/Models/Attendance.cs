@@ -1,4 +1,7 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace PaddleHub.Models
 {
     public class Attendance
@@ -23,11 +26,15 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the Application user FK.
         /// </summary>
+        [Key]
+        [Column(Order = 1)]
         public string AttendeeId { get; set; }
 
         /// <summary>
         /// Gets or sets the Paddle ID.
         /// </summary>
+        [Key]
+        [Column(Order = 2)]
         public int PaddleID { get; set; }
 
         #endregion
