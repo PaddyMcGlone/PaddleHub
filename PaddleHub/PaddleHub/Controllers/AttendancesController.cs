@@ -27,6 +27,7 @@ namespace PaddleHub.Controllers
         /// </summary>
         /// <param name="PaddleId">Paddle identifier</param>
         /// <returns></returns>
+        [Authorize]
         public IHttpActionResult Attend(int paddleId)
         {
             var attendance = new Attendance
