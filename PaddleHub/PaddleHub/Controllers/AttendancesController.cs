@@ -1,4 +1,5 @@
-﻿using PaddleHub.Models;
+﻿using Microsoft.AspNet.Identity;
+using PaddleHub.Models;
 using System.Web.Http;
 
 namespace PaddleHub.Controllers
@@ -28,10 +29,16 @@ namespace PaddleHub.Controllers
         /// <returns></returns>
         public IHttpActionResult Attend(int paddleId)
         {
-            var gig = _context.Paddles.Find(paddleId);
+            var attendance = new Attendance
+            {
+                AttendeeId = User.Identity.GetUserId(),
+                PaddleID = paddleId
+            };
 
+            _context.Attendances.Add(attendance);
+            _context.SaveChanges();
             return Ok(200);
-        };
+        }
 
         #endregion
     }

@@ -47,3 +47,5 @@ C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Newtonsoft.Json
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Http.xml
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Net.Http.Formatting.xml
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Http.WebHost.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Http.WebHost.xml
