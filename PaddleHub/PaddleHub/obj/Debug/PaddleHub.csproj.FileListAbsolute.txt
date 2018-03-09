@@ -79,3 +79,9 @@ C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migration
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.Addinguseraddress.resources
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.Removingdependancieswithintheuserdomain.resources
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingAttendancetothecontext.resources
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Net.Http.Formatting.dll
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.dll
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.WebHost.dll
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Net.Http.Formatting.xml
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.xml
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.WebHost.xml

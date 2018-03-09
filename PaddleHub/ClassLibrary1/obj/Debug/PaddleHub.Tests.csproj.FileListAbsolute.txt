@@ -41,3 +41,9 @@ C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\PaddleHubTests.
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\PaddleHubTests.pdb
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\obj\Debug\PaddleHubTests.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\obj\Debug\PaddleHubTests.pdb
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Http.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Net.Http.Formatting.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Newtonsoft.Json.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Http.xml
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Net.Http.Formatting.xml
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
