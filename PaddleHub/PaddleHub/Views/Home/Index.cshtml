@@ -3,7 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<Ul class="paddles">
+<ul class="paddles">
     @foreach (var paddle in Model)
     {
         <li>
@@ -17,7 +17,7 @@
             </div>
             <div class="details">
                 <span class="paddler">
-                    @paddle.Paddler.UserDetails.Name()
+                    @paddle.Paddler.UserDetails.FirstName
                 </span>
                 <span class="location">
                     @paddle.Location
@@ -26,6 +26,19 @@
                     @paddle.PaddleType.Name
                 </span>
             </div>
+            <div class="actions">
+                <button class="btn btn-default btn-sm" id="attend">Add to calender</button>
+                <button class="btn btn-default btn-sm" id="info">More info</button>
+            </div>
         </li>
     }
-</Ul>
+</ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+
+        })        
+    </script>
+}

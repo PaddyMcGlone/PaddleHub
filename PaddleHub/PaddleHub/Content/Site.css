@@ -104,8 +104,8 @@ h6,
 }
 
 .btn {
-    font-size: 17px;
-    padding: 7px 20px;
+    /*font-size: 17px;
+    padding: 7px 20px;*/
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
@@ -122,7 +122,7 @@ h6,
 
 .paddles > li {
     position: relative; 
-    margin-bottom: 50px;
+    margin-bottom: 100px;    
 }
 
 .paddles > li .date {
@@ -160,10 +160,22 @@ h6,
 
     .paddles > li .details .location {        
         display: block;
-        font-size: 14px
+        font-size: 14px;
     }
 
-    .paddles > li .details .type {        
-        font-size: 14px
+    .paddles > li .details .type {
+        font-size: 14px;
     }
 
+    .paddles > li .details .btn {
+        display: block;
+    }
+
+.paddles > li .actions {
+    position: absolute;   
+    left: 100px;
+    margin-top: 5px;
+}
+    .paddles > li .actions .attend {       
+        display: block; 
+    }
