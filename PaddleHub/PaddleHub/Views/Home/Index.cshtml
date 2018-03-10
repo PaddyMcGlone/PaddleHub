@@ -27,7 +27,7 @@
                 </span>
             </div>
             <div class="actions">
-                <button class="btn btn-default btn-sm" id="attend">Add to calender</button>
+                <button class="btn btn-default btn-sm js-toggle-attend" id="attend" data-id ="@paddle.Id">Add to calender</button>
                 <button class="btn btn-default btn-sm" id="info">More info</button>
             </div>
         </li>
@@ -38,7 +38,16 @@
 {
     <script>
         $(document).ready(function() {
-
+            $(".js-toggle-attend").click(function(e) {
+                var button = $(e.target);
+                $.post("/api/attendance", button.attr("data-id"))
+                    .done(function() {
+                        button.removeClass("btn-default").addClass("btn-info").text("Attending");
+                    })
+                    .fail(function() {
+                        alert("Something went wrong");
+                    });
+            });
         })        
     </script>
 }
