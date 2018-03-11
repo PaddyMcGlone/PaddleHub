@@ -9,6 +9,6 @@ namespace PaddleHub.DTOs
         /// <summary>
         /// Gets or sets the unique identifier for the Gig.
         /// </summary>
-        public int GigId { get; set; }
+        public int PaddleId { get; set; }
     }
 }

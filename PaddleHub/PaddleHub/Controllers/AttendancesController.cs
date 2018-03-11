@@ -27,20 +27,20 @@ namespace PaddleHub.Controllers
 
         /// <summary>
         /// Attend method
-        /// </summary>
-        /// <param name="PaddleId">Paddle identifier</param>
+        /// </summary>        
+        /// <param name="dto"></param>
         /// <returns></returns>        
         [HttpPost]
         public IHttpActionResult Attend(AttendanceDTO dto)
         {
             var userId = User.Identity.GetUserId();
-            var alreadyAttending = _context.Attendances.Any(a => a.AttendeeId == userId && a.PaddleID == dto.GigId);
+            var alreadyAttending = _context.Attendances.Any(a => a.AttendeeId == userId && a.PaddleID == dto.PaddleId);
             if (alreadyAttending) return BadRequest("Already attending this event");
 
             var attendance = new Attendance
             {
                 AttendeeId = userId,
-                PaddleID   = dto.GigId
+                PaddleID   = dto.PaddleId
             };
 
             _context.Attendances.Add(attendance);
