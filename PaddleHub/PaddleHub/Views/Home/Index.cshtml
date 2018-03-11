@@ -39,15 +39,15 @@
     <script>
         $(document).ready(function() {
             $(".js-toggle-attend").click(function(e) {
-                var button = $(e.target);
-                $.post("/api/attendance", button.attr("data-id"))
-                    .done(function() {
-                        button.removeClass("btn-default").addClass("btn-info").text("Attending");
-                    })
-                    .fail(function() {
-                        alert("Something went wrong");
-                    });
-            });
-        })        
+                    var button = $(e.target);
+                $.post("/api/attendances", {"": button.attr("data-id")})                
+                .done(function() {
+                    button.removeClass("btn-default").addClass("btn-info").text("Attending");
+                })
+                .fail(function() {
+                    alert("Something went wrong");
+                });
+        });
+    })        
     </script>
 }
