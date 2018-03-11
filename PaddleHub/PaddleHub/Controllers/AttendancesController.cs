@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using PaddleHub.DTOs;
 using PaddleHub.Models;
 using System.Linq;
 using System.Web.Http;
@@ -30,16 +31,16 @@ namespace PaddleHub.Controllers
         /// <param name="PaddleId">Paddle identifier</param>
         /// <returns></returns>        
         [HttpPost]
-        public IHttpActionResult Attend([FromBody] int paddleId)
+        public IHttpActionResult Attend(AttendanceDTO dto)
         {
             var userId = User.Identity.GetUserId();
-            var alreadyAttending = _context.Attendances.Any(a => a.AttendeeId == userId && a.PaddleID == paddleId);
+            var alreadyAttending = _context.Attendances.Any(a => a.AttendeeId == userId && a.PaddleID == dto.GigId);
             if (alreadyAttending) return BadRequest("Already attending this event");
 
             var attendance = new Attendance
             {
                 AttendeeId = userId,
-                PaddleID   = paddleId
+                PaddleID   = dto.GigId
             };
 
             _context.Attendances.Add(attendance);
