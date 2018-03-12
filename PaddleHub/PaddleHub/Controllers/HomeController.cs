@@ -1,9 +1,10 @@
-﻿using PaddleHub.Models;
+﻿using Microsoft.AspNet.Identity;
+using PaddleHub.Models;
+using PaddleHub.ViewModels;
 using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using PaddleHub.ViewModels;
 
 namespace PaddleHub.Controllers
 {
@@ -11,11 +12,24 @@ namespace PaddleHub.Controllers
     {
         public ApplicationDbContext _context;
 
+        #region Constructor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public HomeController()
         {
             _context = new ApplicationDbContext();
         }
 
+        #endregion        
+
+        #region Methods
+        
+        /// <summary>
+        /// Index - returns the home view
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             var upcomingPaddles = _context.Paddles
@@ -33,18 +47,21 @@ namespace PaddleHub.Controllers
             return View(viewModel);
         }
 
-        public ActionResult About()
+        /// <summary>
+        /// Attendance - returns an attendance view
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Attending()
         {
-            ViewBag.Message = "Your application description page.";
+            var userId = User.Identity.GetUserId();
+            var attending = _context.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Paddle)
+                .ToList();
 
-            return View();
-        }
+            return View(attending);
+        }       
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        #endregion
     }
 }
