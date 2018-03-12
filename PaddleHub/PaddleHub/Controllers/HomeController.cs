@@ -51,6 +51,7 @@ namespace PaddleHub.Controllers
         /// Attendance - returns an attendance view
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         public ActionResult Attending()
         {
             var userId = User.Identity.GetUserId();
