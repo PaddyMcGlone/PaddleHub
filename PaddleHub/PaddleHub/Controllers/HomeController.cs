@@ -3,6 +3,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using PaddleHub.ViewModels;
 
 namespace PaddleHub.Controllers
 {
@@ -23,7 +24,13 @@ namespace PaddleHub.Controllers
                     .Include(p => p.PaddleType)
                     .Where(p => p.DateTime > DateTime.Now);
 
-            return View(upcomingPaddles);
+            var viewModel = new HomeViewModel
+            {
+                UpcomingPaddles = upcomingPaddles,
+                UserAuthorised = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()

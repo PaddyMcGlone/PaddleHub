@@ -1,10 +1,10 @@
-﻿@model IEnumerable<PaddleHub.Models.Paddle>
+﻿@model PaddleHub.ViewModels.HomeViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
 <ul class="paddles">
-    @foreach (var paddle in Model)
+    @foreach (var paddle in Model.UpcomingPaddles)
     {
         <li>
             <div class="date">
@@ -27,8 +27,11 @@
                 </span>
             </div>
             <div class="actions">
-                <button class="btn btn-default btn-sm js-toggle-attend" id="attend" data-id ="@paddle.Id">Add to calender</button>
-                <button class="btn btn-default btn-sm" id="info">More info</button>
+                @if (Model.UserAuthorised)
+                {
+                    <button class="btn btn-default btn-sm js-toggle-attend" id="attend" data-id="@paddle.Id">Add to calender</button>
+                    <button class="btn btn-default btn-sm" id="info">More info</button>
+                }                
             </div>
         </li>
     }
