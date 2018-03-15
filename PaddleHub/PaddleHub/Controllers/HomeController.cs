@@ -38,7 +38,7 @@ namespace PaddleHub.Controllers
                     .Include(p => p.PaddleType)
                     .Where(p => p.DateTime > DateTime.Now);
 
-            var viewModel = new HomeViewModel
+            var viewModel = new PaddleViewModel
             {
                 UpcomingPaddles = upcomingPaddles,
                 UserAuthorised = User.Identity.IsAuthenticated
@@ -52,17 +52,27 @@ namespace PaddleHub.Controllers
         /// </summary>
         /// <returns></returns>
         [Authorize]
-        public ActionResult Attending()
+        public ActionResult Calender()
         {
             var userId = User.Identity.GetUserId();
             var attending = _context.Attendances
                 .Where(a => a.AttendeeId == userId)
                 .Select(a => a.Paddle)
+                .Include(p => p.Paddler)
+                .Include(p => p.Paddler.UserDetails)
+                .Include(p => p.PaddleType)
                 .ToList();
 
-            return View(attending);
+            var viewModel = new PaddleViewModel
+            {
+                UpcomingPaddles = attending,
+                UserAuthorised = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }       
 
         #endregion
+        
     }
 }

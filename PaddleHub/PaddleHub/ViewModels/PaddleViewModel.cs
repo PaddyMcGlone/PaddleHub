@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using PaddleHub.Models;
+﻿using PaddleHub.Models;
+using System.Collections.Generic;
 
 namespace PaddleHub.ViewModels
 {
     /// <summary>
-    /// The HomeViewModel
+    /// The PaddleViewModel
     /// </summary>
-    public class HomeViewModel
+    public class PaddleViewModel
     {
         /// <summary>
         /// Gets or sets the upcoming paddles
