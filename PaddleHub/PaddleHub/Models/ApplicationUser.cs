@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -9,7 +10,19 @@ namespace PaddleHub.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        #region Properties  
+        #region Constructor
+
+        /// <summary>
+        /// A default constructor for application user
+        /// </summary>
+        public ApplicationUser()
+        {
+            Followers = new List<string>();
+            Followees = new List<string>();
+        }
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// User details navigation property 
@@ -19,7 +32,17 @@ namespace PaddleHub.Models
         /// <summary>
         /// Address navigation property
         /// </summary>
-        public UserAddress Address { get; set; } 
+        public UserAddress Address { get; set; }
+
+        /// <summary>
+        /// A list of users currently following this paddler
+        /// </summary>
+        public ICollection<string> Followers { get; set; }
+
+        /// <summary>
+        /// A list of users this user is currently following
+        /// </summary>
+        public ICollection<string> Followees { get; set; }
 
         #endregion
 
