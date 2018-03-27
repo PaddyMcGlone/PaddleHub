@@ -30,7 +30,7 @@
                 @if (Model.UserAuthorised)
                 {
                     <button class="btn btn-default btn-sm js-toggle-attend" id="attend" data-id="@paddle.Id">Add to calender</button>
-                    <button class="btn btn-default btn-sm" id="info">More info</button>
+                    <button class="btn btn-default btn-sm js-toggle-follow" id="follow" data-id="@paddle.Paddler.Id">Follow Paddler?</button>
                 }                
             </div>
         </li>
@@ -42,15 +42,25 @@
     <script>
         $(document).ready(function() {
             $(".js-toggle-attend").click(function(e) {
-                    var button = $(e.target);
-                $.post("/api/attendances", {"PaddleId": button.attr("data-id")})                
-                .done(function() {
-                    button.removeClass("btn-default").addClass("btn-info").text("Attending");
-                })
-                .fail(function() {
-                    alert("Something went wrong");
-                });
-        });
-    })        
+                var button = $(e.target);
+                $.post("/api/attendances", { "PaddleId": button.attr("data-id") })
+                    .done(function() {
+                        button.removeClass("btn-default").addClass("btn-info").text("Attending");
+                    })
+                    .fail(function() {
+                        alert("Something went wrong");
+                    });
+            });
+            $(".js-toggle-follow").click(function(e) {
+                var button = $(e.target);
+                $.post("/api/follow", { "FollowerId": button.attr("data-id") })
+                    .done(function() {
+                        button.removeClass("btn-default").addClass("btn-info").text("Following Paddler");
+                    })
+                    .fail(function() {
+                        alert("Something went wrong");
+                    });
+            });
+        })
     </script>
 }
