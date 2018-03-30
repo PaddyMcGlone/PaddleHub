@@ -6,7 +6,7 @@ using System.Web.Http;
 
 namespace PaddleHub.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AttendancesController : ApiController
     {       
         private ApplicationDbContext _context;

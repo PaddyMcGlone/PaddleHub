@@ -32,7 +32,7 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the followers.
         /// </summary>
-        public DbSet<Following> Followers { get; set; }
+        public DbSet<Following> Followings { get; set; }
 
         #endregion
 
