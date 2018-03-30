@@ -262,10 +262,15 @@
     <Compile Include="Migrations\201803082114398_Adding Attendance to the context.Designer.cs">
       <DependentUpon>201803082114398_Adding Attendance to the context.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803301350543_Adding Follower.cs" />
+    <Compile Include="Migrations\201803301350543_Adding Follower.Designer.cs">
+      <DependentUpon>201803301350543_Adding Follower.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\Following.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Paddle.cs" />
     <Compile Include="Models\PaddleType.cs" />
@@ -439,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803082114398_Adding Attendance to the context.resx">
       <DependentUpon>201803082114398_Adding Attendance to the context.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803301350543_Adding Follower.resx">
+      <DependentUpon>201803301350543_Adding Follower.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

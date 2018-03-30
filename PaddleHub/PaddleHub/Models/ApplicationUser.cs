@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,8 +18,8 @@ namespace PaddleHub.Models
         /// </summary>
         public ApplicationUser()
         {
-            Followers = new List<string>();
-            Followees = new List<string>();
+            Followers = new Collection<Following>();
+            Followees = new Collection<Following>();
         }
         #endregion
 
@@ -37,12 +38,12 @@ namespace PaddleHub.Models
         /// <summary>
         /// A list of users currently following this paddler
         /// </summary>
-        public ICollection<string> Followers { get; set; }
+        public ICollection<Following> Followers { get; set; }
 
         /// <summary>
         /// A list of users this user is currently following
         /// </summary>
-        public ICollection<string> Followees { get; set; }
+        public ICollection<Following> Followees { get; set; }
 
         #endregion
 

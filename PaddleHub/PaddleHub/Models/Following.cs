@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PaddleHub.Models
 {
-    public class Followers
+    public class Following
     {
         #region Navigational Properties
         /// <summary>
@@ -24,6 +24,7 @@ namespace PaddleHub.Models
         [Column(Order = 1)]
         public string FollowerId { get; set; }
 
+        [Key]
         [Column(Order = 2)]
         public string FolloweeId { get; set; }
 

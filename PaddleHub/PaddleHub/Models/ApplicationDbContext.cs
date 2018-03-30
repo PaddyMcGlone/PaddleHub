@@ -29,6 +29,11 @@ namespace PaddleHub.Models
         /// </summary>
         public DbSet<Attendance> Attendances { get; set; }
 
+        /// <summary>
+        /// Gets or sets the followers.
+        /// </summary>
+        public DbSet<Following> Followers { get; set; }
+
         #endregion
 
         #region Constructor
@@ -61,8 +66,18 @@ namespace PaddleHub.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Attendance>()
-                .HasRequired(m => m.Paddle)
+                .HasRequired(a => a.Paddle)
                 .WithMany()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(u => u.Followers)
+                .WithRequired(f => f.Followee)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(u => u.Followees)
+                .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);

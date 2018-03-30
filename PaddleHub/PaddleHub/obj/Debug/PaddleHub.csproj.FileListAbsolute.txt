@@ -85,3 +85,4 @@ C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.WebHost.d
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Net.Http.Formatting.xml
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.xml
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.WebHost.xml
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingFollower.resources
