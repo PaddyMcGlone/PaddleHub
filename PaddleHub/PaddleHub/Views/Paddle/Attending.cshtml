@@ -1,0 +1,38 @@
+﻿@model  PaddleHub.ViewModels.PaddleViewModel
+@{
+    ViewBag.Title = "Attending";
+}
+
+<ul class="paddles">
+    @foreach (var paddle in Model.UpcomingPaddles)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @paddle.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @paddle.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">
+                <span class="paddler">
+                    @paddle.Paddler.UserDetails.FirstName
+                </span>
+                <span class="location">
+                    @paddle.Location
+                </span>
+                <span class="type">
+                    @paddle.PaddleType.Name
+                </span>
+            </div>
+            <div class="actions">
+                @if (Model.UserAuthorised)
+                {
+                    <button class="btn btn-default btn-sm js-toggle-attend" id="attend" data-id="@paddle.Id">Add to calender</button>
+                    <button class="btn btn-default btn-sm js-toggle-follow" id="follow" data-id="@paddle.Paddler.Id">Follow Paddler?</button>
+                }
+            </div>
+        </li>
+    }
+</ul>

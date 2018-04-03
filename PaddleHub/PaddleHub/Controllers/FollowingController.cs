@@ -20,10 +20,7 @@ namespace PaddleHub.Controllers
         public IHttpActionResult Follow(FollowDTO dto)
         {
             var userId = User.Identity.GetUserId();
-            var alreadyFollowing = _context
-                .Users.Single(u => u.Id == userId)
-                .Followees.Any(f => f.FolloweeId == dto.FolloweeId);
-
+            var alreadyFollowing = _context.Followings.Any(f => f.FolloweeId == dto.FolloweeId && f.FollowerId == userId);
             if (alreadyFollowing) return BadRequest("Already following");            
 
             var following = new Following

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using PaddleHub.Models;
 using PaddleHub.ViewModels;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -44,6 +45,27 @@ namespace PaddleHub.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+
+            // command selects a list of paddles from the attendance object
+            var paddles = context.Attendances              
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Paddle)       
+                .Include(g => g.Paddler.UserDetails)
+                .Include(g => g.PaddleType)
+                .ToList();
+
+            var viewModel = new PaddleViewModel
+            {
+                UpcomingPaddles = paddles,
+                UserAuthorised = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
         #region Helper methods
 
         /// <summary>
