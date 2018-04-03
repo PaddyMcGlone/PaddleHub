@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using PaddleHub.Models;
+﻿using PaddleHub.Models;
 using PaddleHub.ViewModels;
 using System;
 using System.Data.Entity;
@@ -41,37 +40,12 @@ namespace PaddleHub.Controllers
             var viewModel = new PaddleViewModel
             {
                 UpcomingPaddles = upcomingPaddles,
-                UserAuthorised = User.Identity.IsAuthenticated
+                UserAuthorised  = User.Identity.IsAuthenticated,
+                Heading         = "Upcoming paddles" 
             };
 
-            return View(viewModel);
+            return View("Paddle", viewModel);
         }
-
-        /// <summary>
-        /// Attendance - returns an attendance view
-        /// </summary>
-        /// <returns></returns>
-        [Authorize]
-        public ActionResult Calender()
-        {
-            var userId = User.Identity.GetUserId();
-            var attending = _context.Attendances
-                .Where(a => a.AttendeeId == userId)
-                .Select(a => a.Paddle)
-                .Include(p => p.Paddler)
-                .Include(p => p.Paddler.UserDetails)
-                .Include(p => p.PaddleType)
-                .ToList();
-
-            var viewModel = new PaddleViewModel
-            {
-                UpcomingPaddles = attending,
-                UserAuthorised = User.Identity.IsAuthenticated
-            };
-
-            return View(viewModel);
-        }       
-
         #endregion
         
     }

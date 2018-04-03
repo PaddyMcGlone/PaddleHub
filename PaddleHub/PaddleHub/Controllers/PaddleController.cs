@@ -61,10 +61,11 @@ namespace PaddleHub.Controllers
             var viewModel = new PaddleViewModel
             {
                 UpcomingPaddles = paddles,
-                UserAuthorised = User.Identity.IsAuthenticated
+                UserAuthorised  = User.Identity.IsAuthenticated,
+                Heading         = "Paddles Im Attending" 
             };
 
-            return View(viewModel);
+            return View("Paddle", viewModel);
         }
         #region Helper methods
 

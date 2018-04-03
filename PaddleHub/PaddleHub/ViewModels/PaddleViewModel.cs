@@ -17,5 +17,10 @@ namespace PaddleHub.ViewModels
         /// Gets or sets if a user is authenticated
         /// </summary>
         public bool UserAuthorised { get; set; }
+
+        /// <summary>
+        /// Gets or sets the page heading
+        /// </summary>
+        public string Heading { get; set; }
     }
 }

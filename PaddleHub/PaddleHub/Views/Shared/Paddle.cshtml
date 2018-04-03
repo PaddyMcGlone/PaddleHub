@@ -1,7 +1,9 @@
 ﻿@model PaddleHub.ViewModels.PaddleViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = @Model.Heading;
 }
+
+<h1>@Model.Heading</h1>
 
 <ul class="paddles">
     @foreach (var paddle in Model.UpcomingPaddles)
