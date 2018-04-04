@@ -1,0 +1,16 @@
+﻿@model System.Collections.Generic.List<PaddleHub.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Paddlers I am following";    
+}
+
+<h2>Paddlers I am following</h2>
+<ul>
+    @foreach (var paddler in @Model)
+    {
+        <li>
+            <span>@paddler.UserDetails.Name()</span>        
+        </li>        
+    }
+</ul>
+
