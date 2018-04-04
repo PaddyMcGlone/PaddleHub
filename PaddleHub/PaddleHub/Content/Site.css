@@ -25,6 +25,13 @@ textarea {
 
 /* Bootstrap overrides */
 
+/*Vertical offset*/
+.vOffSet1 { margin-top: 2px;}
+.vOffSet2 { margin-top: 5px;}
+.vOffSet3 { margin-top: 10px;}
+.vOffSet4 { margin-top: 20px;}
+.vOffSet5 { margin-top: 40px;}
+.vOffSet6 { margin-top: 80px;}
 
 /* Navbar styles*/
 .navbar-inverse {
