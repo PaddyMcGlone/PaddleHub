@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using PaddleHub.Models;
 using PaddleHub.ViewModels;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -42,7 +43,19 @@ namespace PaddleHub.Controllers
             context.Paddles.Add(paddle);
             context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Mine");
+        }
+
+        [Authorize]
+        public ActionResult Mine()
+        {
+            var userId = User.Identity.GetUserId();
+            var paddles = context.Paddles
+                .Where(p => p.PaddlerId == userId && p.DateTime >= DateTime.Now)
+                .Include(p => p.PaddleType)
+                .ToList();
+
+            return View(paddles);
         }
 
         [Authorize]

@@ -400,6 +400,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Paddle\Create.cshtml" />
     <Content Include="Views\User\Following.cshtml" />
+    <Content Include="Views\Paddle\Mine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

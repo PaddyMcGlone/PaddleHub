@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PaddleHub.Models.Paddle>
+@{
+    ViewBag.Title = "My Paddles";
+}
+
+
+<h1>My Paddles</h1>
+<ul class="paddles vOffSet5">
+    @foreach (var paddle in Model)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @paddle.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @paddle.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">                
+                <span class="location">
+                    @paddle.Location
+                </span>
+                <span class="type">
+                    @paddle.PaddleType.Name
+                </span>
+            </div>
+        </li>
+    }
+</ul>
