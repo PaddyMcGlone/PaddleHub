@@ -47,6 +47,24 @@ namespace PaddleHub.Controllers
         }
 
         [Authorize]
+        public ActionResult Edit(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var paddle = context.Paddles.SingleOrDefault(p => p.Id == id && p.PaddlerId == userId);
+
+            var viewModel = new PaddleFormViewModel
+            {
+                PaddleTypes = context.PaddleTypes.ToList(),
+                Date = paddle.DateTime.ToString("d"),
+                Time = paddle.DateTime.ToString("HH:mm"),
+                Location = paddle.Location,
+                PaddleType = paddle.PaddleTypeId
+            };
+
+            return View("Create", viewModel);
+        }
+
+        [Authorize]
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
