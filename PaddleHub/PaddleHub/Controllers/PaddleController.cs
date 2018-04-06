@@ -25,7 +25,7 @@ namespace PaddleHub.Controllers
                 PaddleTypes = context.PaddleTypes.ToList()
             };
 
-            return View(viewModel);
+            return View("PaddleForm", viewModel);
         }
 
         [HttpPost, Authorize]
@@ -35,7 +35,7 @@ namespace PaddleHub.Controllers
             if (!ModelState.IsValid)
             {             
                 viewModel.PaddleTypes = context.PaddleTypes.ToList();
-                return View("Create", viewModel);
+                return View("PaddleForm", viewModel);
             }
             
             var paddle = MapPaddle(viewModel);
@@ -61,7 +61,7 @@ namespace PaddleHub.Controllers
                 PaddleType = paddle.PaddleTypeId
             };
 
-            return View("Create", viewModel);
+            return View("PaddleForm", viewModel);
         }
 
         [Authorize]

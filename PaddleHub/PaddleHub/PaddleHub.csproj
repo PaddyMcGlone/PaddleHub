@@ -398,7 +398,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Paddle\Create.cshtml" />
+    <Content Include="Views\Paddle\PaddleForm.cshtml" />
     <Content Include="Views\User\Following.cshtml" />
     <Content Include="Views\Paddle\Mine.cshtml" />
   </ItemGroup>
