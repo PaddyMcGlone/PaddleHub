@@ -11,6 +11,11 @@ namespace PaddleHub.Models
         public int Id { get; set; }
 
         /// <summary>
+        /// Gets or sets the cancelation of a paddle.
+        /// </summary>
+        public bool IsCancelled { get; set; }
+
+        /// <summary>
         /// The paddle organiser.
         /// </summary>        
         public ApplicationUser Paddler { get; set; }

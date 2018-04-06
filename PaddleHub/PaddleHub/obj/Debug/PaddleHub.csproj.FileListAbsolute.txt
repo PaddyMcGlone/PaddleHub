@@ -86,3 +86,4 @@ C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Net.Http.Formattin
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.xml
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\bin\System.Web.Http.WebHost.xml
 C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.AddingFollower.resources
+C:\Code\Applications\PaddleHub\PaddleHub\PaddleHub\obj\Debug\PaddleHub.Migrations.Addingiscancelledtothepaddledomainmodel.resources
