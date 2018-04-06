@@ -1,8 +1,11 @@
-﻿using System;
+﻿using PaddleHub.Controllers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using System.Linq.Expressions;
+using System.Web.Mvc;
 
 namespace PaddleHub.ViewModels
 {
@@ -58,7 +61,11 @@ namespace PaddleHub.ViewModels
         public string Action {
             get
             {
-                return (Id == 0) ? "Create" : "Edit";
+                Expression<Func<PaddleController, ActionResult>> create = c => c.Create(this);
+                Expression<Func<PaddleController, ActionResult>> edit = c => c.Edit(this);
+
+                var action = (Id != 0) ? edit : create;
+                return ((MethodCallExpression) action.Body).Method.Name;                
             }
         }
         
