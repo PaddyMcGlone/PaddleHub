@@ -55,12 +55,13 @@ namespace PaddleHub.Controllers
 
             var viewModel = new PaddleFormViewModel
             {
-                Heading = "Edit a paddle",
+                Id          = paddle.Id,
+                Heading     = "Edit a paddle",
                 PaddleTypes = context.PaddleTypes.ToList(),
-                Date = paddle.DateTime.ToString("d"),
-                Time = paddle.DateTime.ToString("HH:mm"),
-                Location = paddle.Location,
-                PaddleType = paddle.PaddleTypeId
+                Date        = paddle.DateTime.ToString("d"),
+                Time        = paddle.DateTime.ToString("HH:mm"),
+                Location    = paddle.Location,
+                PaddleType  = paddle.PaddleTypeId
             };
 
             return View("PaddleForm", viewModel);
