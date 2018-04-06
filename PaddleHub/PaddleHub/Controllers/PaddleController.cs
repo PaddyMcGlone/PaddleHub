@@ -22,6 +22,7 @@ namespace PaddleHub.Controllers
         {
             var viewModel = new PaddleFormViewModel
             {
+                Heading = "Create a paddle",
                 PaddleTypes = context.PaddleTypes.ToList()
             };
 
@@ -54,6 +55,7 @@ namespace PaddleHub.Controllers
 
             var viewModel = new PaddleFormViewModel
             {
+                Heading = "Edit a paddle",
                 PaddleTypes = context.PaddleTypes.ToList(),
                 Date = paddle.DateTime.ToString("d"),
                 Time = paddle.DateTime.ToString("HH:mm"),

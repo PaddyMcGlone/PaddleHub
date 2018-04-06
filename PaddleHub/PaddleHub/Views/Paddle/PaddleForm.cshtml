@@ -1,11 +1,11 @@
 ﻿@model PaddleHub.ViewModels.PaddleFormViewModel
 
 @{
-    ViewBag.Title = "Add a Paddle";
+    ViewBag.Title = @Model.Heading;
 }
 
 
-<h2>Create a new paddle</h2>
+<h2>@Model.Heading</h2>
 
 @using (@Html.BeginForm("Create", "Paddle"))
 {

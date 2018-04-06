@@ -9,7 +9,12 @@ namespace PaddleHub.ViewModels
     public class PaddleFormViewModel : IValidatableObject
     {
         #region Properties
-        
+
+        /// <summary>
+        /// Gets or sets the page title/heading
+        /// </summary>
+        public string Heading { get; set; }
+
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
@@ -40,7 +45,7 @@ namespace PaddleHub.ViewModels
         /// <summary>
         /// Gets or sets the paddle types list.
         /// </summary>
-        public IEnumerable PaddleTypes { get; set; }
+        public IEnumerable PaddleTypes { get; set; }        
 
         #endregion
 
