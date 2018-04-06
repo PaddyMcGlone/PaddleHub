@@ -16,6 +16,11 @@ namespace PaddleHub.ViewModels
         public string Heading { get; set; }
 
         /// <summary>
+        /// Gets or sets the paddle id
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         [Required]
@@ -45,7 +50,18 @@ namespace PaddleHub.ViewModels
         /// <summary>
         /// Gets or sets the paddle types list.
         /// </summary>
-        public IEnumerable PaddleTypes { get; set; }        
+        public IEnumerable PaddleTypes { get; set; }
+
+        /// <summary>
+        /// Gets the models action type
+        /// </summary>
+        public string Action {
+            get
+            {
+                return (Id == 0) ? "Create" : "Edit";
+            }
+        }
+        
 
         #endregion
 

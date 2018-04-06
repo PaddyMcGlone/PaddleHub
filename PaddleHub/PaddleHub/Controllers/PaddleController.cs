@@ -66,6 +66,31 @@ namespace PaddleHub.Controllers
             return View("PaddleForm", viewModel);
         }
 
+        [HttpPost, Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PaddleFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.PaddleTypes = context.PaddleTypes.ToList();
+                return View("PaddleForm", viewModel);
+            }
+
+            var userId = User.Identity.GetUserId();
+            var paddle = context.Paddles.SingleOrDefault(p => p.Id == viewModel.Id && p.PaddlerId == userId);
+
+            if (paddle != null)
+            {
+                paddle.Location = viewModel.Location;
+                paddle.DateTime = viewModel.PaddleDateTime();
+                paddle.PaddleTypeId = viewModel.PaddleType;
+            }
+
+            context.SaveChanges();
+
+            return RedirectToAction("Mine");
+        }
+
         [Authorize]
         public ActionResult Mine()
         {
