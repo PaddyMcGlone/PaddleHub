@@ -186,3 +186,12 @@ h6,
     .paddles > li .actions .attend {       
         display: block; 
     }
+
+.paddles > li .manage {
+    font-size: 15px;
+    display: none;
+}
+
+.paddles > li:hover .manage {
+    display: block;
+}
