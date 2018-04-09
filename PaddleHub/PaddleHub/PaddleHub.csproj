@@ -215,6 +215,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DTOs\AttendanceDTO.cs" />
     <Compile Include="DTOs\FollowDTO.cs" />
+    <Compile Include="DTOs\PaddleDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

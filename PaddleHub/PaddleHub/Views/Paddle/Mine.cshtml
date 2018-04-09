@@ -26,9 +26,34 @@
                 </span>
                 <div class="manage">
                     <a href="@Url.Action("Edit", "Paddle", new {id = @paddle.Id})">Edit</a> |
-                    <a href="#" class="js-cancel-paddle" data="@paddle.Id">Cancel</a>
+                    <a href="#" class="js-cancel-paddle" data-paddle-id="@paddle.Id">Cancel</a>
                 </div>
             </div>
         </li>
     }
 </ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-cancel-paddle").Click(function(e) {
+                var link = $(e.target);
+                if (confirm("Do you want to cancel this event?")) {
+                    $.ajax({
+                            url: "/api/paddle" + link.attr("data-paddle-id"),
+                            method: "DELETE"
+                        })
+                        .done(function() {
+                            link.parent("li").fadeOut(function() {
+                                $(this).remove();
+                            })
+                        })
+                        .fail(function() {
+                            alert("Something failed");
+                        });
+                }
+            });
+        })
+    </script>
+}
