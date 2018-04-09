@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Linq;
+using System.Web.Http;
+using Microsoft.AspNet.Identity;
 using PaddleHub.DTOs;
 using PaddleHub.Models;
-using System.Linq;
-using System.Web.Http;
 
-namespace PaddleHub.Controllers
+namespace PaddleHub.Controllers.API
 {
     [Authorize]
     public class AttendancesController : ApiController

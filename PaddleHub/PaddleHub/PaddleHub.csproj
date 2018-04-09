@@ -206,8 +206,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AttendancesController.cs" />
-    <Compile Include="Controllers\FollowingController.cs" />
+    <Compile Include="Controllers\API\AttendancesController.cs" />
+    <Compile Include="Controllers\API\FollowingController.cs" />
+    <Compile Include="Controllers\API\PaddleController.cs" />
     <Compile Include="Controllers\PaddleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />

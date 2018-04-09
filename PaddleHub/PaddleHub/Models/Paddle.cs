@@ -9,12 +9,7 @@ namespace PaddleHub.Models
         /// Paddle identifier.
         /// </summary>
         public int Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the cancelation of a paddle.
-        /// </summary>
-        public bool IsCancelled { get; set; }
-
+        
         /// <summary>
         /// The paddle organiser.
         /// </summary>        
@@ -36,6 +31,11 @@ namespace PaddleHub.Models
         /// The type of paddle.
         /// </summary>
         public PaddleType PaddleType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cancelation of a paddle.
+        /// </summary>
+        public bool IsCancelled { get; set; }
 
 
         #region Foreign Keys
