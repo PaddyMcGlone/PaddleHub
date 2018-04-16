@@ -98,7 +98,7 @@ namespace PaddleHub.Controllers
             var userId = User.Identity.GetUserId();
             var paddles = context.Paddles
                 .Where(p => p.PaddlerId == userId 
-                            && p.DateTime >= DateTime.Now && !p.IsCancelled)
+                            && p.DateTime >= DateTime.Now)
                 .Include(p => p.PaddleType)
                 .ToList();
 

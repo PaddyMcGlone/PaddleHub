@@ -26,7 +26,7 @@ namespace PaddleHub.Controllers.API
         {
             var userId = User.Identity.GetUserId();
             var paddle = _context.Paddles.SingleOrDefault(p => p.Id == id && p.PaddlerId == userId);
-            if (paddle == null) return BadRequest("Unable to retrieve paddle");
+            if (paddle == null || paddle.IsCancelled) return NotFound();
 
             paddle.IsCancelled = true;
             _context.SaveChanges();
