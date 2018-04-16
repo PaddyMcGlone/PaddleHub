@@ -35,7 +35,8 @@ namespace PaddleHub.Controllers
                     .Include(p => p.Paddler)
                     .Include(p => p.Paddler.UserDetails)
                     .Include(p => p.PaddleType)
-                    .Where(p => p.DateTime > DateTime.Now);
+                    .Where(p => p.DateTime > DateTime.Now 
+                                && !p.IsCancelled);
 
             var viewModel = new PaddleViewModel
             {
