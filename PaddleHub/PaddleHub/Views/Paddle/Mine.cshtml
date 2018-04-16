@@ -36,23 +36,41 @@
 @section scripts
 {
     <script>
-        $(document).ready(function () {
-            $(".js-cancel-paddle").Click(function(e) {
+        $(document).ready(function() {
+            $(".js-cancel-paddle").click(function(e) {
                 var link = $(e.target);
-                if (confirm("Do you want to cancel this event?")) {
-                    $.ajax({
-                            url: "/api/paddle" + link.attr("data-paddle-id"),
-                            method: "DELETE"
-                        })
-                        .done(function() {
-                            link.parent("li").fadeOut(function() {
-                                $(this).remove();
-                            })
-                        })
-                        .fail(function() {
-                            alert("Something failed");
-                        });
-                }
+
+                var dialog = bootbox.dialog({
+                    title: 'Cancel a paddle',
+                    message: "<p>Do you want to cancel this paddle?</p>",
+                    buttons: {
+                        No: {
+                            label: "No",
+                            className: 'btn-default',
+                            callback: function () {
+                                bootbox.hideAll();
+                            }
+                        },
+                        Yes: {
+                            label: "Yes",
+                            className: 'btn-danger',
+                            callback: function () {
+                                $.ajax({
+                                        url: "/api/paddle/" + link.attr("data-paddle-id"),
+                                        method: "DELETE"
+                                    })
+                                    .done(function () {
+                                        link.parents("li").fadeOut(function () {
+                                            $(this).remove();
+                                        });
+                                    })
+                                    .fail(function () {
+                                        alert("Something failed");
+                                    });
+                            }
+                        }
+                    }
+                });                                
             });
         })
     </script>

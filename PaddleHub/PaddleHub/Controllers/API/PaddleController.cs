@@ -22,16 +22,16 @@ namespace PaddleHub.Controllers.API
 
         #region Methods
         [HttpDelete]
-        public IHttpActionResult Cancel(PaddleDTO dto)
+        public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();
-            var paddle = _context.Paddles.SingleOrDefault(p => p.Id == dto.Id && p.PaddlerId == userId);
+            var paddle = _context.Paddles.SingleOrDefault(p => p.Id == id && p.PaddlerId == userId);
             if (paddle == null) return BadRequest("Unable to retrieve paddle");
 
             paddle.IsCancelled = true;
             _context.SaveChanges();
 
-            return Ok(dto.Id.ToString());
+            return Ok(id.ToString());
         }
         #endregion
     }
