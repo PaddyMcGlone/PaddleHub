@@ -281,11 +281,14 @@
     <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Following.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationType.cs" />
     <Compile Include="Models\Paddle.cs" />
     <Compile Include="Models\PaddleType.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\UserAddress.cs" />
     <Compile Include="Models\UserDetails.cs" />
+    <Compile Include="Models\UserNotifcation.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\PaddleViewModel.cs" />
