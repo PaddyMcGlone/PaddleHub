@@ -34,6 +34,16 @@ namespace PaddleHub.Models
         /// </summary>
         public DbSet<Following> Followings { get; set; }
 
+        /// <summary>
+        /// Gets or sets the notifications.
+        /// </summary>
+        public DbSet<Notification> Notifications { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user notifications.
+        /// </summary>
+        public DbSet<UserNotifcation> UserNotifcations { get; set; }
+
         #endregion
 
         #region Constructor
@@ -78,6 +88,11 @@ namespace PaddleHub.Models
             modelBuilder.Entity<ApplicationUser>()
                 .HasMany(u => u.Followees)
                 .WithRequired(f => f.Follower)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UserNotifcation>()
+                .HasRequired(n => n.User)
+                .WithMany()
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);

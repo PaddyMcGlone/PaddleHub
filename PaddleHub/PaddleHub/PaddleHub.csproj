@@ -275,6 +275,10 @@
     <Compile Include="Migrations\201804061800170_Adding is cancelled to the paddle domain model.Designer.cs">
       <DependentUpon>201804061800170_Adding is cancelled to the paddle domain model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804181952285_Adding Notification classes.cs" />
+    <Compile Include="Migrations\201804181952285_Adding Notification classes.Designer.cs">
+      <DependentUpon>201804181952285_Adding Notification classes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -464,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804061800170_Adding is cancelled to the paddle domain model.resx">
       <DependentUpon>201804061800170_Adding is cancelled to the paddle domain model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804181952285_Adding Notification classes.resx">
+      <DependentUpon>201804181952285_Adding Notification classes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
