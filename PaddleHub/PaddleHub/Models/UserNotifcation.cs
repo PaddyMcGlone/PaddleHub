@@ -4,7 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PaddleHub.Models
 {
     public class UserNotifcation
-    {
+    {        
+        #region Properties
+
         /// <summary>
         /// Gets or sets the User id
         /// </summary>
@@ -31,5 +33,23 @@ namespace PaddleHub.Models
         /// Navigation propety to notification
         /// </summary>
         public Notification Notification { get; set; }
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Create new user notification constructor
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="notifcation"></param>
+        public UserNotifcation(ApplicationUser user, Notification notifcation)
+        {
+            User         = user;
+            Notification = notifcation;
+        }
+
+        #endregion
+
     }
 }
