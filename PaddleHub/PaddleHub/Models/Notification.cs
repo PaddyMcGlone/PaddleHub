@@ -57,6 +57,9 @@ namespace PaddleHub.Models
         /// <param name="notificationType"></param>
         public Notification(Paddle paddle, NotificationType notificationType)
         {
+            if (paddle == null)
+                throw new ArgumentNullException("paddle");
+
             DateTime         = DateTime.Now;
             Paddle           = paddle;
             NotificationType = notificationType;
