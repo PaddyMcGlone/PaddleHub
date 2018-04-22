@@ -90,12 +90,7 @@ namespace PaddleHub.Models
         /// <param name="notification"></param>
         public void Notify(Notification notification)
         {
-            var userNotification = new UserNotifcation
-            {
-                User = this,
-                Notification = notification
-            };
-            UserNotifcations.Add(userNotification);
+            UserNotifcations.Add(new UserNotifcation(this, notification));
         }
         
         #endregion        
