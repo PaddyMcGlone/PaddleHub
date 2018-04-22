@@ -18,8 +18,9 @@ namespace PaddleHub.Models
         /// </summary>
         public ApplicationUser()
         {
-            Followers = new Collection<Following>();
-            Followees = new Collection<Following>();
+            Followers        = new Collection<Following>();
+            Followees        = new Collection<Following>();
+            UserNotifcations = new Collection<UserNotifcation>();
         }
         #endregion
 
@@ -44,6 +45,11 @@ namespace PaddleHub.Models
         /// A list of users this user is currently following
         /// </summary>
         public ICollection<Following> Followees { get; set; }
+
+        /// <summary>
+        /// Gets or sets a user notification navigational property
+        /// </summary>
+        public ICollection<UserNotifcation> UserNotifcations { get; set; }
 
         #endregion
 
@@ -77,7 +83,21 @@ namespace PaddleHub.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        /// <summary>
+        /// A helper method to help persist a user notification.
+        /// </summary>
+        /// <param name="notification"></param>
+        public void Notify(Notification notification)
+        {
+            var userNotification = new UserNotifcation
+            {
+                User = this,
+                Notification = notification
+            };
+            UserNotifcations.Add(userNotification);
+        }
         
-        #endregion
+        #endregion        
     }
 }

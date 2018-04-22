@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
-using PaddleHub.DTOs;
 using PaddleHub.Models;
+using System;
 using System.Linq;
 using System.Web.Http;
 
@@ -29,6 +29,24 @@ namespace PaddleHub.Controllers.API
             if (paddle == null || paddle.IsCancelled) return NotFound();
 
             paddle.IsCancelled = true;
+            _context.SaveChanges();
+
+            var notification = new Notification
+            {
+                DateTime         = DateTime.Now,
+                Paddle           = paddle,
+                NotificationType = NotificationType.Cancelled
+            };
+
+            var attendees = _context.Attendances
+                .Where(a => a.PaddleID == id)
+                .Select(a => a.Attendee).ToList();
+
+            foreach (var attendee in attendees)
+            {
+                attendee.Notify(notification);                
+            }
+
             _context.SaveChanges();
 
             return Ok(id.ToString());
