@@ -5,6 +5,7 @@ namespace PaddleHub.Models
 {
     public class Notification
     {
+        #region Properties
         /// <summary>
         /// Gets or sets the notification id
         /// </summary>
@@ -35,5 +36,32 @@ namespace PaddleHub.Models
         /// </summary>
         [Required]
         public Paddle Paddle { get; set; }
+        
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// The default constructor for entity framework
+        /// </summary>
+        protected Notification()
+        {
+            
+        }
+
+        /// <summary>
+        /// The notification custom constructor
+        /// </summary>
+        /// <param name="paddle"></param>
+        /// <param name="notificationType"></param>
+        public Notification(Paddle paddle, NotificationType notificationType)
+        {
+            DateTime         = DateTime.Now;
+            Paddle           = paddle;
+            NotificationType = notificationType;
+        }
+
+        #endregion
     }
 }
