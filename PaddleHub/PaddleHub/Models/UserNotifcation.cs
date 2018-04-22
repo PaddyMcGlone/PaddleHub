@@ -28,12 +28,12 @@ namespace PaddleHub.Models
         /// <summary>
         /// Naviation property to user
         /// </summary>
-        public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; private set; }
 
         /// <summary>
         /// Navigation propety to notification
         /// </summary>
-        public Notification Notification { get; set; }
+        public Notification Notification { get; private set; }
 
         #endregion
 
