@@ -40,6 +40,14 @@ namespace PaddleHub.Models
         #region Constructor
 
         /// <summary>
+        /// The default constructor for EF.
+        /// </summary>
+        protected UserNotifcation()
+        {
+            
+        }
+
+        /// <summary>
         /// Create new user notification constructor
         /// </summary>
         /// <param name="user"></param>
