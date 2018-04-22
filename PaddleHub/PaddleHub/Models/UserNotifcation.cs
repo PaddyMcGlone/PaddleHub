@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PaddleHub.Models
@@ -45,6 +46,12 @@ namespace PaddleHub.Models
         /// <param name="notifcation"></param>
         public UserNotifcation(ApplicationUser user, Notification notifcation)
         {
+            if (user == null) 
+                throw new ArgumentNullException("user");
+            
+            if (notifcation == null) 
+                throw new ArgumentNullException("notifcation");            
+
             User         = user;
             Notification = notifcation;
         }
