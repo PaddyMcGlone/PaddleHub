@@ -49,3 +49,6 @@ C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Net.Http
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Http.WebHost.dll
 C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\System.Web.Http.WebHost.xml
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\WebGrease.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Antlr3.Runtime.dll
+C:\Code\Applications\PaddleHub\PaddleHub\ClassLibrary1\bin\Debug\Antlr3.Runtime.pdb

@@ -77,7 +77,7 @@ namespace PaddleHub.Models
         {
             modelBuilder.Entity<Attendance>()
                 .HasRequired(a => a.Paddle)
-                .WithMany()
+                .WithMany(p => p.Attendances)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ApplicationUser>()
@@ -92,7 +92,7 @@ namespace PaddleHub.Models
 
             modelBuilder.Entity<UserNotifcation>()
                 .HasRequired(n => n.User)
-                .WithMany()
+                .WithMany(u => u.UserNotifcations)
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
