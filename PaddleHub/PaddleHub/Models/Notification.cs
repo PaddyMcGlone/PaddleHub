@@ -14,7 +14,7 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the notificaiton datetime
         /// </summary>
-        public DateTime DateTime { get; set; }
+        public DateTime DateTime { get; private set; }
 
         /// <summary>
         /// Gets or sets the notification type
