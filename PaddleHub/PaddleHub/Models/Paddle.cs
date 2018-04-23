@@ -53,7 +53,7 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the cancelation of a paddle.
         /// </summary>
-        public bool IsCancelled { get; set; }
+        public bool IsCancelled { get; private set; }
 
         /// <summary>
         /// A navigation property for attendances.
