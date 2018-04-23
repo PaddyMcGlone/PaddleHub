@@ -32,13 +32,7 @@ namespace PaddleHub.Controllers.API
             if (paddle == null || paddle.IsCancelled) 
                 return NotFound();
 
-            paddle.IsCancelled = true;
-            var notification = new Notification(paddle, NotificationType.Cancelled);            
-
-            foreach (var attendee in paddle.Attendances.Select(a => a.Attendee))
-            {
-                attendee.Notify(notification);
-            }
+            paddle.CancelEvent();            
 
             _context.SaveChanges();
             return Ok(id.ToString());

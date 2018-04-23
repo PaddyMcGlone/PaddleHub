@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using WebGrease.Css.Extensions;
 
 namespace PaddleHub.Models
 {    
@@ -76,6 +78,20 @@ namespace PaddleHub.Models
         public byte PaddleTypeId { get; set; }
 
         #endregion
-        
+
+        #region Methods
+        /// <summary>
+        /// Mark a paddle as cancelled
+        /// </summary>
+        public void CancelEvent()
+        {
+            IsCancelled = true;
+
+            var notification = new Notification(this, NotificationType.Cancelled);
+
+            Attendances.Select(a => a.Attendee)
+                .ForEach(a => a.Notify(notification));
+        }
+        #endregion
     }
 }
