@@ -19,7 +19,7 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the notification type
         /// </summary>
-        public NotificationType NotificationType { get; set; }
+        public NotificationType NotificationType { get; private set; }
 
         /// <summary>
         /// Gets or sets when the original date time
@@ -35,7 +35,7 @@ namespace PaddleHub.Models
         /// Gets or sets the linked paddle for the notificaiton.
         /// </summary>
         [Required]
-        public Paddle Paddle { get; set; }
+        public Paddle Paddle { get; private set; }
         
 
         #endregion
