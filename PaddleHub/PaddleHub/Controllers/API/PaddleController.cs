@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using PaddleHub.Models;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 
@@ -24,40 +25,24 @@ namespace PaddleHub.Controllers.API
         public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();
-            var paddle = _context.Paddles.SingleOrDefault(p => p.Id == id && p.PaddlerId == userId);
+            var paddle = _context.Paddles
+                .Include(p => p.Attendances.Select(a => a.Attendee))
+                .SingleOrDefault(p => p.Id == id && p.PaddlerId == userId);
 
             if (paddle == null || paddle.IsCancelled) 
                 return NotFound();
 
-            paddle.IsCancelled = true;            
-            AddCancelNotification(id, paddle);
+            paddle.IsCancelled = true;
+            var notification = new Notification(paddle, NotificationType.Cancelled);            
+
+            foreach (var attendee in paddle.Attendances.Select(a => a.Attendee))
+            {
+                attendee.Notify(notification);
+            }
 
             _context.SaveChanges();
             return Ok(id.ToString());
         }        
-        #endregion
-
-        #region Helper methods
-
-        /// <summary>
-        /// Add cancel notification
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="paddle"></param>
-        private void AddCancelNotification(int id, Paddle paddle)
-        {
-            var notification = new Notification(paddle, NotificationType.Cancelled);
-
-            var attendees = _context.Attendances
-                .Where(a => a.PaddleID == id)
-                .Select(a => a.Attendee)
-                .ToList();
-
-            foreach (var attendee in attendees)
-            {
-                attendee.Notify(notification);
-            }
-        }
         #endregion
     }
 }

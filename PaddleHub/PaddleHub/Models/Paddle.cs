@@ -1,10 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace PaddleHub.Models
 {    
     public class Paddle
     {
+        #region Constructor
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Paddle()
+        {
+            Attendances = new Collection<Attendance>();
+        }
+
+        #endregion
+
+        #region Properties
+
         /// <summary>
         /// Paddle identifier.
         /// </summary>
@@ -37,6 +53,12 @@ namespace PaddleHub.Models
         /// </summary>
         public bool IsCancelled { get; set; }
 
+        /// <summary>
+        /// A navigation property for attendances.
+        /// </summary>
+        public ICollection<Attendance> Attendances { get; private set; }
+
+        #endregion
 
         #region Foreign Keys
 
@@ -54,5 +76,6 @@ namespace PaddleHub.Models
         public byte PaddleTypeId { get; set; }
 
         #endregion
+        
     }
 }
