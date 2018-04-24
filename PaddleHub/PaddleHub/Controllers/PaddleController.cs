@@ -80,17 +80,14 @@ namespace PaddleHub.Controllers
             var userId = User.Identity.GetUserId();
             var paddle = context.Paddles.SingleOrDefault(p => p.Id == viewModel.Id && p.PaddlerId == userId);
 
-            var originalDateTime = paddle.DateTime;
-            var originalLocation = paddle.Location;
-
             if (paddle != null)
             {
+                paddle.UpdateEvent(paddle.DateTime, paddle.Location);
+
                 paddle.Location = viewModel.Location;
                 paddle.DateTime = viewModel.PaddleDateTime();
                 paddle.PaddleTypeId = viewModel.PaddleType;               
-            }            
-
-            paddle.UpdateEvent(originalDateTime, originalLocation);
+            }
 
             context.SaveChanges();
 
