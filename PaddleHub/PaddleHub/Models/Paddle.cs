@@ -86,13 +86,38 @@ namespace PaddleHub.Models
         {
             IsCancelled = true;
 
-            var notification = new Notification(this, NotificationType.Cancelled);
+            NotifyAttendees(new Notification(this, NotificationType.Cancelled));                
+        }
 
+        /// <summary>
+        /// Mark a paddle as updated
+        /// </summary>
+        public void UpdateEvent(DateTime originalDateTime, string originalLocation)
+        {
+            var notification = new Notification(this, NotificationType.Modified)
+            {
+                OriginalDateTime = originalDateTime,
+                OriginalLocation = originalLocation
+            };
+
+            NotifyAttendees(notification);
+        }
+        #endregion
+
+        #region Helper methods
+
+        /// <summary>
+        /// A helper method for updating attendances
+        /// </summary>
+        /// <param name="notification"></param>
+        private void NotifyAttendees(Notification notification)
+        {
             foreach (var attendance in Attendances.Select(a => a.Attendee))
             {
                 attendance.Notify(notification);
-            }                
+            }
         }
+
         #endregion
     }
 }
