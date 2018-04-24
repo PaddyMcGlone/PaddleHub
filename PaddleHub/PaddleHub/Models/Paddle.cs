@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using WebGrease.Css.Extensions;
 
 namespace PaddleHub.Models
 {    
@@ -89,8 +88,10 @@ namespace PaddleHub.Models
 
             var notification = new Notification(this, NotificationType.Cancelled);
 
-            Attendances.Select(a => a.Attendee)
-                .ForEach(a => a.Notify(notification));
+            foreach (var attendance in Attendances.Select(a => a.Attendee))
+            {
+                attendance.Notify(notification);
+            }                
         }
         #endregion
     }
