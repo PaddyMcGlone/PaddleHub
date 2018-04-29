@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\AttendancesController.cs" />
     <Compile Include="Controllers\API\FollowingController.cs" />
+    <Compile Include="Controllers\API\NotificationController.cs" />
     <Compile Include="Controllers\API\PaddleController.cs" />
     <Compile Include="Controllers\PaddleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
