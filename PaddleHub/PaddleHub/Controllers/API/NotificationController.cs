@@ -1,12 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using PaddleHub.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using Microsoft.AspNet.Identity;
-using PaddleHub.Models;
 
 namespace PaddleHub.Controllers.API
 {
@@ -20,7 +17,7 @@ namespace PaddleHub.Controllers.API
             this.context = context;
         }
 
-        public List<Notification> GetNewNotifications()
+        public List<NotificationDto> GetNewNotifications()
         {
             var userId = User.Identity.GetUserId();
             var notifications = context.UserNotifcations

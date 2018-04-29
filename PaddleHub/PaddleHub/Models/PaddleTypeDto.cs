@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PaddleHub.Models
+﻿namespace PaddleHub.Models
 {
-    public class PaddleType
+    public class PaddleTypeDto
     {
         #region Properties
         /// <summary>
@@ -12,9 +10,7 @@ namespace PaddleHub.Models
 
         /// <summary>
         /// Paddle type name.
-        /// </summary>
-        [Required]
-        [StringLength(255)]
+        /// </summary>        
         public string Name { get; set; }
         #endregion
     }
