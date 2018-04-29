@@ -33,7 +33,7 @@ namespace PaddleHub.Models
         /// <summary>
         /// Gets or sets the cancelation of a paddle.
         /// </summary>
-        public bool IsCancelled { get; private set; }       
+        public bool IsCancelled { get; set; }       
         #endregion
     }
 }

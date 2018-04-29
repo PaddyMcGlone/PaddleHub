@@ -17,7 +17,7 @@ namespace PaddleHub.Controllers.API
             this.context = context;
         }
 
-        public List<NotificationDto> GetNewNotifications()
+        public IEnumerable<NotificationDto> GetNewNotifications()
         {
             var userId = User.Identity.GetUserId();
             var notifications = context.UserNotifcations
@@ -26,7 +26,29 @@ namespace PaddleHub.Controllers.API
                 .Include(n => n.Paddle.Paddler)
                 .ToList();
 
-            return notifications;
+            return notifications.Select(n => new NotificationDto
+            {
+                DateTime = n.DateTime,
+                Paddle = new PaddleDto
+                {
+                    Id = n.Paddle.Id,
+                    DateTime = n.Paddle.DateTime,
+                    IsCancelled = n.Paddle.IsCancelled,
+                    Location = n.Paddle.Location,
+                    Paddler = new UserDto
+                    {
+                        Id = n.Paddle.PaddlerId,
+                        Name = n.Paddle.Paddler.UserDetails.Name()
+                    },
+                    PaddleType = new PaddleTypeDto
+                    {
+                        Id = n.Paddle.PaddleType.Id,
+                        Name = n.Paddle.PaddleType.Name
+                    }                                        
+                },
+                OriginalDateTime = n.OriginalDateTime,
+                OriginalLocation = n.OriginalLocation
+            });
         }
     }
 }
