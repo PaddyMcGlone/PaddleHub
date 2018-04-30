@@ -27,11 +27,6 @@ namespace PaddleHub.Controllers.API
                 .Include(n => n.Paddle.Paddler)
                 .ToList();
 
-            Mapper.CreateMap<ApplicationUser, UserDto>();
-            Mapper.CreateMap<PaddleType, PaddleTypeDto>();
-            Mapper.CreateMap<Paddle, PaddleDto>();
-            Mapper.CreateMap<Notification, NotificationDto>();
-
             return notifications.Select(Mapper.Map<Notification, NotificationDto>);
         }
     }
