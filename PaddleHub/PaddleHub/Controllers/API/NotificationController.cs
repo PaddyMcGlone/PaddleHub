@@ -28,7 +28,7 @@ namespace PaddleHub.Controllers.API
             var userId = User.Identity.GetUserId();
 
             var notifications = context.UserNotifcations
-                .Where(un => un.UserId == userId)
+                .Where(un => un.UserId == userId && !un.IsRead)
                 .Select(un => un.Notification)
                 .Include(n => n.Paddle.Paddler)
                 .ToList();
