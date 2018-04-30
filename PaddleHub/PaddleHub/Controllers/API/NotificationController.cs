@@ -11,16 +11,22 @@ namespace PaddleHub.Controllers.API
     [Authorize]
     public class NotificationController : ApiController
     {
+        #region Fields
         private ApplicationDbContext context;
+        #endregion
 
+        #region Constructor
         public NotificationController(ApplicationDbContext context)
         {
             this.context = context;
         }
+        #endregion
 
+        #region Methods
         public IEnumerable<NotificationDto> GetNewNotifications()
         {
             var userId = User.Identity.GetUserId();
+
             var notifications = context.UserNotifcations
                 .Where(un => un.UserId == userId)
                 .Select(un => un.Notification)
@@ -29,5 +35,6 @@ namespace PaddleHub.Controllers.API
 
             return notifications.Select(Mapper.Map<Notification, NotificationDto>);
         }
+        #endregion
     }
 }
