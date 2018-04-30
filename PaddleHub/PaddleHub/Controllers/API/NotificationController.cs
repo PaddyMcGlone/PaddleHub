@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using PaddleHub.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -26,29 +27,12 @@ namespace PaddleHub.Controllers.API
                 .Include(n => n.Paddle.Paddler)
                 .ToList();
 
-            return notifications.Select(n => new NotificationDto
-            {
-                DateTime = n.DateTime,
-                Paddle = new PaddleDto
-                {
-                    Id = n.Paddle.Id,
-                    DateTime = n.Paddle.DateTime,
-                    IsCancelled = n.Paddle.IsCancelled,
-                    Location = n.Paddle.Location,
-                    Paddler = new UserDto
-                    {
-                        Id = n.Paddle.PaddlerId,
-                        Name = n.Paddle.Paddler.UserDetails.Name()
-                    },
-                    PaddleType = new PaddleTypeDto
-                    {
-                        Id = n.Paddle.PaddleType.Id,
-                        Name = n.Paddle.PaddleType.Name
-                    }                                        
-                },
-                OriginalDateTime = n.OriginalDateTime,
-                OriginalLocation = n.OriginalLocation
-            });
+            Mapper.CreateMap<ApplicationUser, UserDto>();
+            Mapper.CreateMap<PaddleType, PaddleTypeDto>();
+            Mapper.CreateMap<Paddle, PaddleDto>();
+            Mapper.CreateMap<Notification, NotificationDto>();
+
+            return notifications.Select(Mapper.Map<Notification, NotificationDto>);
         }
     }
 }
