@@ -16,9 +16,9 @@ namespace PaddleHub.Controllers.API
         #endregion
 
         #region Constructor
-        public NotificationController(ApplicationDbContext context)
+        public NotificationController()
         {
-            this.context = context;
+            context = new ApplicationDbContext();
         }
         #endregion
 
