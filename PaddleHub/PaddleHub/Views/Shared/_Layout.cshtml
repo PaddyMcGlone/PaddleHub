@@ -63,8 +63,10 @@
         $(".notifications").popover({
             html: true,
             title: "Notifications",
-            content: function() {
-                return "Hello world";
+            content: function () {
+                var compiled = _.template("Hello <%=  name %>");
+                var html = compiled({ name: "Patrick" });
+                return html;
             },
             placement: "bottom"
         });
