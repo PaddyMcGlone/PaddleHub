@@ -50,6 +50,10 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
+<script type="text/x-template" id="notifications-template">
+    Hello <%=  name %>, from the template
+</script>
+
 <script>
     $(document).ready(function() {
         $.getJSON("/API/Notification",
@@ -64,7 +68,7 @@
             html: true,
             title: "Notifications",
             content: function () {
-                var compiled = _.template("Hello <%=  name %>");
+                var compiled = _.template($("#notifications-template").html());
                 var html = compiled({ name: "Patrick" });
                 return html;
             },
