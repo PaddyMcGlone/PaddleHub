@@ -56,6 +56,16 @@ textarea {
     border-bottom-color: #fff;
 }
 
+.navbar-inverse .notifications {
+    position: relative;
+}
+
+.navbar-inverse .notifications .badge {
+    position: absolute;
+    top: 8px;
+    right: 0;    
+}
+
 .navbar-brand {
     float: left;
     padding: 15px 15px;
