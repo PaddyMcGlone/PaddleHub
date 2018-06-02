@@ -53,12 +53,17 @@
 <script type="text/x-template" id="notifications-template">
     <ul>
         <%
-            _.each(notifications, function(notification){               
-                if (notification.type == 1) { %>
-                  <li><% notification.Paddle.Name %> has cancelled the paddle at <% notification.Paddle.Location %> at <% notification.Paddle.Datetime %>.</li>  
-                <%}
-        })
-        %>
+        _.each(notifications, function(notification){
+        if (notification.type == 1) { %>
+            <li><% notification.Paddle.Name %> has cancelled the paddle at <% notification.Paddle.Location %> at <% notification.Paddle.Datetime %>.</li>
+        <%}
+        if (notification.type == 2) { %>
+            <li><% notification.Paddle.Name %> has created a paddle: <% notification.Paddle.Location %> at <% notification.Paddle.Datetime %>.</li>
+        <%}
+        if (notification.type == 3) { %>
+        <li><% notification.Paddle.Name %> has modified a paddle: <% notification.Paddle.Location %> at <% notification.Paddle.Datetime %>.</li>
+        <%}
+        })%>
     </ul> 
 </script>
 
