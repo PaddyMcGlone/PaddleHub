@@ -53,8 +53,7 @@
 <script type="text/x-template" id="notifications-template">
     <ul>
         <%
-            _.each(notifications, function(notification){
-                %><li>Hello world</li><%
+            _.each(notifications, function(notification){               
                 if (notification.type == 1) { %>
                   <li><% notification.Paddle.Name %> has cancelled the paddle at <% notification.Paddle.Location %> at <% notification.Paddle.Datetime %>.</li>  
                 <%}
