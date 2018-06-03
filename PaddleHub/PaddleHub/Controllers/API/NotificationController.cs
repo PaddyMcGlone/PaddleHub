@@ -33,7 +33,8 @@ namespace PaddleHub.Controllers.API
                 .Include(n => n.Paddle.Paddler)
                 .ToList();
 
-            return notifications.Select(Mapper.Map<Notification, NotificationDto>);
+            var result  = notifications.Select(Mapper.Map<Notification, NotificationDto>);
+            return result;
         }
         #endregion
     }
