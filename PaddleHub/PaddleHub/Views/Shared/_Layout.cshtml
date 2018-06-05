@@ -85,8 +85,7 @@
                     title: "Notifications",
                     content: function () {
                         var compiled = _.template($("#notifications-template").html());
-                        var html = compiled({ notifications: notifications });
-                        return html;
+                        return compiled({ notifications: notifications });                        
                     },
                     placement: "bottom"
                 });
