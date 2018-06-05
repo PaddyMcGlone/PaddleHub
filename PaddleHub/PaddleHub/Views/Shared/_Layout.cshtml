@@ -54,17 +54,23 @@
 <script type="text/x-template" id="notifications-template">
     <ul>
         <%
-            _.each(notifications, function(notification){
-                %> <li>Original location: <%= notification.OriginalLocation %></li><%
-            })
+        _.each(notifications, function(notification) {
+        %>
+
+        <% if( notification.dateTime != null)
+        { %>
+            <li>This is working</li>
+        <% } %>
+        <li>Data: <%= notification.dateTime %></li>
+
+        <%
+        })
         %>
     </ul> 
 </script>
-
 <script>
     $(document).ready(function() {
-        $.getJSON("/API/Notification",
-            function(notifications) {
+        $.getJSON("/API/Notification", function(notifications) {
                 $(".js-notifications-count")
                     .text(notifications.length)
                     .removeClass("hide")
