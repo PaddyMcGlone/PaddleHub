@@ -57,11 +57,15 @@
         _.each(notifications, function(notification) {
         %>
 
-        <% if( notification.dateTime != null)
+        <% if( notification.notificationType == 0)
         { %>
-            <li>This is working</li>
+            <li><%= notification.paddle.name %> has cancelled paddle at <%= notification.paddle.location %></li>
         <% } %>
-        <li>Data: <%= notification.dateTime %></li>
+        
+        <% if( notification.notificationType == 2)
+        { %>
+        <li><%= notification.paddle.name %> has created a paddle at <%= notification.paddle.location %></li>
+        <% } %>
 
         <%
         })
