@@ -97,22 +97,24 @@
 </script>
 <script>
     $(document).ready(function() {
-        $.getJSON("/API/Notification", function(notifications) {
-                $(".js-notifications-count")
-                    .text(notifications.length)
-                    .removeClass("hide")
-                    .addClass("animated bounceInDown");
+        $.getJSON("/API/Notification", function (notifications) {
+            if (notifications.length == 0) return;
 
-                $(".notifications").popover({
-                    html: true,
-                    title: "Notifications",
-                    content: function () {
-                        var compiled = _.template($("#notifications-template").html());
-                        return compiled({ notifications: notifications });                        
-                    },
-                    placement: "bottom"
-                });
+            $(".js-notifications-count")
+                .text(notifications.length)
+                .removeClass("hide")
+                .addClass("animated bounceInDown");
+
+            $(".notifications").popover({
+                html: true,
+                title: "Notifications",
+                content: function () {
+                    var compiled = _.template($("#notifications-template").html());
+                    return compiled({ notifications: notifications });                        
+                },
+                placement: "bottom"
             });
+       });
     })
 </script>
 </body>
