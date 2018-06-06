@@ -59,12 +59,38 @@
 
         <% if( notification.notificationType == 0)
         { %>
-            <li><%= notification.paddle.name %> has cancelled paddle at <%= notification.paddle.location %></li>
+        <li><%= notification.paddle.name %> has cancelled paddle at <%= notification.paddle.location %></li>
+        <% } %>
+
+        <% if( notification.notificationType == 1)
+        {
+        %>
+        <li><%= notification.paddle.name %> has created a paddle at <%= notification.paddle.location %></li>
         <% } %>
         
         <% if( notification.notificationType == 2)
-        { %>
-        <li><%= notification.paddle.name %> has created a paddle at <%= notification.paddle.location %></li>
+        {
+
+        var changes[];
+        var originalValues[];
+        var newValues[];
+
+        if (notification.originalLocation != notification.paddle.location)
+        {
+            changes.push('location');
+            originalValues.push(originalLocation);
+            newValues.push(notification.paddle.location);
+        }
+
+        if (notification.originalDateTime != notification.paddle.datetime)
+        {
+            changes.push('datetime');
+            originalValues.push(originalDatetime);
+            newValues.push(notification.paddle.DateTime);
+        }
+
+        %>
+        <li><%= notification.paddle.name %> has changed paddle <%= changes.join(' and ') %> from <%= originalValue.join(' / ') %> to <%= newValues.join(' / ')</li>
         <% } %>
 
         <%

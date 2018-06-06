@@ -11,13 +11,13 @@ namespace PaddleHub.Models
         /// <summary>
         /// Represents an event being added.
         /// </summary>
-        Added = 2,
+        Added = 1,
 
 
         /// <summary>
         /// Represents an event being modified.
         /// </summary>
-        Modified = 3
+        Modified = 2
     }
 }
 
