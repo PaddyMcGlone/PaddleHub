@@ -54,33 +54,67 @@
 <script type="text/x-template" id="notifications-template">
     <ul>
         <%
-            _.each(notifications, function(notification){
-                %> <li>Original location: <%= notification.OriginalLocation %></li><%
-            })
+        _.each(notifications, function(notification) {
+        %>
+
+        <% if( notification.notificationType == 0)
+        { %>
+        <li><%= notification.paddle.name %> has cancelled paddle at <%= notification.paddle.location %></li>
+        <% } %>
+
+        <% if( notification.notificationType == 1)
+        {
+        %>
+        <li><%= notification.paddle.name %> has created a paddle at <%= notification.paddle.location %></li>
+        <% } %>
+        
+        <% if( notification.notificationType == 2){
+
+        var changes = [],
+            originalValues = [],
+            newValues = [];
+
+        if (notification.originalLocation != notification.paddle.location) {
+            changes.push('location');
+            originalValues.push(notification.originalLocation);
+            newValues.push(notification.paddle.location);
+        }
+
+        if (notification.originalDateTime != notification.paddle.datetime) {
+            changes.push('datetime');
+            originalValues.push(notification.originalDatetime);
+            newValues.push(notification.paddle.DateTime);
+        }
+
+        %>
+        <li><%= notification.paddle.name %> has changed paddle <%= changes.join(' and ') %> from <%= originalValues.join(' / ') %> to <%= newValues.join(' / ') %></li>
+        <% } %>
+
+        <%
+        })
         %>
     </ul> 
 </script>
-
 <script>
     $(document).ready(function() {
-        $.getJSON("/API/Notification",
-            function(notifications) {
-                $(".js-notifications-count")
-                    .text(notifications.length)
-                    .removeClass("hide")
-                    .addClass("animated bounceInDown");
+        $.getJSON("/API/Notification", function (notifications) {
+            if (notifications.length == 0) return;
 
-                $(".notifications").popover({
-                    html: true,
-                    title: "Notifications",
-                    content: function () {
-                        var compiled = _.template($("#notifications-template").html());
-                        var html = compiled({ notifications: notifications });
-                        return html;
-                    },
-                    placement: "bottom"
-                });
+            $(".js-notifications-count")
+                .text(notifications.length)
+                .removeClass("hide")
+                .addClass("animated bounceInDown");
+
+            $(".notifications").popover({
+                html: true,
+                title: "Notifications",
+                content: function () {
+                    var compiled = _.template($("#notifications-template").html());
+                    return compiled({ notifications: notifications });                        
+                },
+                placement: "bottom"
             });
+       });
     })
 </script>
 </body>
