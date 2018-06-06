@@ -68,29 +68,26 @@
         <li><%= notification.paddle.name %> has created a paddle at <%= notification.paddle.location %></li>
         <% } %>
         
-        <% if( notification.notificationType == 2)
-        {
+        <% if( notification.notificationType == 2){
 
-        var changes[];
-        var originalValues[];
-        var newValues[];
+        var changes = [],
+            originalValues = [],
+            newValues = [];
 
-        if (notification.originalLocation != notification.paddle.location)
-        {
+        if (notification.originalLocation != notification.paddle.location) {
             changes.push('location');
-            originalValues.push(originalLocation);
+            originalValues.push(notification.originalLocation);
             newValues.push(notification.paddle.location);
         }
 
-        if (notification.originalDateTime != notification.paddle.datetime)
-        {
+        if (notification.originalDateTime != notification.paddle.datetime) {
             changes.push('datetime');
-            originalValues.push(originalDatetime);
+            originalValues.push(notification.originalDatetime);
             newValues.push(notification.paddle.DateTime);
         }
 
         %>
-        <li><%= notification.paddle.name %> has changed paddle <%= changes.join(' and ') %> from <%= originalValue.join(' / ') %> to <%= newValues.join(' / ')</li>
+        <li><%= notification.paddle.name %> has changed paddle <%= changes.join(' and ') %> from <%= originalValues.join(' / ') %> to <%= newValues.join(' / ') %></li>
         <% } %>
 
         <%
