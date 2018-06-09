@@ -10,7 +10,8 @@ namespace PaddleHub.App_Start
         /// </summary>
         public MappingProfile()
         {
-            Mapper.CreateMap<ApplicationUser, UserDto>();
+            Mapper.CreateMap<ApplicationUser, UserDto>()
+                .ForMember(d => d.Name, opts => opts.MapFrom(s => s.UserDetails.Name()));
             Mapper.CreateMap<PaddleType, PaddleTypeDto>();
             Mapper.CreateMap<Paddle, PaddleDto>();
             Mapper.CreateMap<Notification, NotificationDto>();

@@ -31,6 +31,7 @@ namespace PaddleHub.Controllers.API
                 .Where(un => un.UserId == userId && !un.IsRead)
                 .Select(un => un.Notification)
                 .Include(n => n.Paddle.Paddler)
+                .Include(n => n.Paddle.Paddler.UserDetails)
                 .ToList();
 
             var result  = notifications.Select(Mapper.Map<Notification, NotificationDto>);
