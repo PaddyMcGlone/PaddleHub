@@ -205,3 +205,8 @@ h6,
 .paddles > li:hover .manage {
     display: block;
 }
+
+ul.notifications {
+    list-style: none;
+    padding-left: 0;
+}
