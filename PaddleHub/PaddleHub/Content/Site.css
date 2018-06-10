@@ -206,6 +206,10 @@ h6,
     display: block;
 }
 
+/*.popover-notifications .popover-content {
+    padding: 0;
+}*/
+
 ul.notifications {
     list-style: none;
     padding-left: 0;
