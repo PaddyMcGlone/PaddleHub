@@ -59,13 +59,13 @@
 
         <% if( notification.notificationType == 0)
         { %>
-        <li><%= notification.paddle.paddler.name %> has cancelled a paddle at <%= notification.paddle.location %> on <%= notification.paddle.dateTime %></li>
+        <li><span class="highlight"><%= notification.paddle.paddler.name %></span> has cancelled a paddle at <%= notification.paddle.location %> on <%= notification.paddle.dateTime %></li>
         <% } %>
 
         <% if( notification.notificationType == 1)
         {
         %>
-        <li><%= notification.paddle.paddler.name %> has created a paddle at <%= notification.paddle.location %> on <%= notification.paddle.dateTime %></li>
+        <li><span class="highlight"><%= notification.paddle.paddler.name %></span> has created a paddle at <%= notification.paddle.location %> on <%= notification.paddle.dateTime %></li>
         <% } %>
         
         <% if( notification.notificationType == 2){
@@ -87,7 +87,7 @@
         }
 
         %>
-        <li><%= notification.paddle.paddler.name %> has changed paddle <%= changes.join(' and ') %> from <%= originalValues.join(' / ') %> to <%= newValues.join(' / ') %></li>
+        <li><span class="highlight"><%= notification.paddle.paddler.name %></span> has changed paddle <%= changes.join(' and ') %> from <%= originalValues.join(' / ') %> to <%= newValues.join(' / ') %></li>
         <% } %>
 
         <%

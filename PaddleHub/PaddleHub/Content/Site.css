@@ -220,6 +220,10 @@ ul.notifications > li {
     padding: 10px 0;
 }
 
+ul.notifications .highlight {
+    font-weight: bold;
+}
+
     ul.notifications > li:last-child {
         border-bottom: none;
     }
