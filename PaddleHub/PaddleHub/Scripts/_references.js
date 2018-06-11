@@ -10,3 +10,4 @@
 /// <reference path="jquery-ui-1.12.1.min.js" />
 /// <reference path="bootbox.min.js" />
 /// <reference path="underscore-min.js" />
+/// <reference path="moment.min.js" />

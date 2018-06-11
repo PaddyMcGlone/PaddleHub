@@ -59,13 +59,13 @@
 
         <% if( notification.notificationType == 0)
         { %>
-        <li><span class="highlight"><%= notification.paddle.paddler.name %></span> has cancelled a paddle at <%= notification.paddle.location %> on <%= notification.paddle.dateTime %></li>
+        <li><span class="highlight"><%= notification.paddle.paddler.name %></span> has cancelled a paddle at <%= notification.paddle.location %> on <%= moment(notification.paddle.dateTime).format("D MM HH:mm") %></li>
         <% } %>
 
         <% if( notification.notificationType == 1)
         {
         %>
-        <li><span class="highlight"><%= notification.paddle.paddler.name %></span> has created a paddle at <%= notification.paddle.location %> on <%= notification.paddle.dateTime %></li>
+        <li><span class="highlight"><%= notification.paddle.paddler.name %></span> has created a paddle at <%= notification.paddle.location %> on <%= moment(notification.paddle.dateTime).format("D MM HH:mm") %></li>
         <% } %>
         
         <% if( notification.notificationType == 2){
@@ -82,8 +82,8 @@
 
         if (notification.originalDateTime != notification.paddle.dateTime) {
             changes.push('datetime');
-            originalValues.push(notification.originalDateTime);
-            newValues.push(notification.paddle.dateTime);
+            originalValues.push(moment(notification.originalDateTime).format("D MM HH:mm"));
+            newValues.push(moment(notification.paddle.dateTime).format("D MM HH:mm"));
         }
 
         %>
