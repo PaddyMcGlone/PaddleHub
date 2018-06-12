@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
+using WebGrease.Css.Extensions;
 
 namespace PaddleHub.Controllers.API
 {
@@ -38,18 +39,17 @@ namespace PaddleHub.Controllers.API
             return result;
         }
 
-        public void Read()
+        [HttpPost]
+        public IHttpActionResult Read()
         {
             var userId = User.Identity.GetUserId();
 
-            var notifications = context.UserNotifcations.Where(un => un.UserId == userId);
+            context.UserNotifcations
+                .Where(un => un.UserId == userId)
+                .ForEach(n => n.IsRead = true);
 
-            foreach (var notifcation in notifications)
-            {
-                notifcation.IsRead = true;
-            }
-
-            context.SaveChanges();           
+            context.SaveChanges();
+            return Ok();
         }
         #endregion
     }
