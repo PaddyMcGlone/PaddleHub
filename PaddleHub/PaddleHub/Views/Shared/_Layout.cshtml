@@ -107,14 +107,22 @@
             $(".notifications").popover({
                 html: true,
                 title: "Notifications",
-                content: function () {
+                content: function() {
                     var compiled = _.template($("#notifications-template").html());
-                    return compiled({ notifications: notifications });                        
+                    return compiled({ notifications: notifications });
                 },
                 placement: "bottom"
                 //template: '<div class="popover popover-notifications" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+            }).on('shown.bs.popover', function() {
+                $.post("/API/Notification/Read")
+                    .done(function() {
+                        $(".js-notifications-count").addClass("hide");
+                    })
+                    .fail(function() {
+                        alert("Something went wrong");
+                    });
             });
-       });
+        });
     })
 </script>
 </body>

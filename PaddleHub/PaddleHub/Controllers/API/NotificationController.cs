@@ -37,6 +37,20 @@ namespace PaddleHub.Controllers.API
             var result  = notifications.Select(Mapper.Map<Notification, NotificationDto>);
             return result;
         }
+
+        public void Read()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var notifications = context.UserNotifcations.Where(un => un.UserId == userId);
+
+            foreach (var notifcation in notifications)
+            {
+                notifcation.IsRead = true;
+            }
+
+            context.SaveChanges();           
+        }
         #endregion
     }
 }
