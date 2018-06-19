@@ -8,7 +8,13 @@
 @using (Html.BeginForm("Search", "Paddle"))
 {
     <div class="form-group">
-        @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control"})
+        <div class="input-group">
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control" })
+            <div class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </div>
+        </div>
+        
     </div>
 
     <input type="submit" value="Search"/>
