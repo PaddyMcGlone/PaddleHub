@@ -4,7 +4,6 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using Microsoft.Owin;
 
 namespace PaddleHub.Controllers
 {
@@ -24,19 +23,19 @@ namespace PaddleHub.Controllers
 
         #endregion        
 
-        #region Methods
-
+        #region Methods        
+        
         [HttpPost]
         public ActionResult Search(PaddleViewModel viewModel)
         {
-            return RedirectToAction("Index", "Home", new {Query = viewModel.SearchTerm});
+            return RedirectToAction("Index", "Home", new { Query = viewModel.SearchTerm });
         }
-        
+
         /// <summary>
         /// Index - returns the home view
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(string query = null)
         {
             var upcomingPaddles = _context.Paddles
                     .Include(p => p.Paddler)
@@ -44,16 +43,44 @@ namespace PaddleHub.Controllers
                     .Include(p => p.PaddleType)
                     .Where(p => p.DateTime > DateTime.Now);
 
+            upcomingPaddles = FilterUpcomingPaddles(query, upcomingPaddles);
+
             var viewModel = new PaddleViewModel
             {
                 UpcomingPaddles = upcomingPaddles,
                 UserAuthorised  = User.Identity.IsAuthenticated,
-                Heading         = "Upcoming paddles" 
+                Heading         = "Upcoming paddles",
+                SearchTerm      = query   
             };
 
             return View("Paddle", viewModel);
-        }
+        }        
+
         #endregion
-        
+
+        #region Helper methods
+
+        /// <summary>
+        /// A small method to allow upcoming paddles to be filtered
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="upcomingPaddles"></param>
+        /// <returns></returns>
+        private IQueryable<Paddle> FilterUpcomingPaddles(string query, IQueryable<Paddle> upcomingPaddles)
+        {
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                upcomingPaddles = upcomingPaddles
+                    .Where(p =>
+                        p.Paddler.UserDetails.Name().Contains(query) ||
+                        p.Location.Contains(query) ||
+                        p.PaddleType.Name.Contains(query));
+            }
+
+            return upcomingPaddles;
+        }
+
+        #endregion
+
     }
 }

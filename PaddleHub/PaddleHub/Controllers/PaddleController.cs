@@ -45,7 +45,7 @@ namespace PaddleHub.Controllers
             context.SaveChanges();
 
             return RedirectToAction("Mine");
-        }
+        }        
 
         [Authorize]
         public ActionResult Edit(int id)
