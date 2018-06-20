@@ -4,6 +4,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.Owin;
 
 namespace PaddleHub.Controllers
 {
@@ -24,6 +25,12 @@ namespace PaddleHub.Controllers
         #endregion        
 
         #region Methods
+
+        [HttpPost]
+        public ActionResult Search(PaddleViewModel viewModel)
+        {
+            return RedirectToAction("Index", "Home", new {Query = viewModel.SearchTerm});
+        }
         
         /// <summary>
         /// Index - returns the home view
