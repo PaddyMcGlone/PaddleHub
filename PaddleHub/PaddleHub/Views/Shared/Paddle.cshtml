@@ -31,8 +31,8 @@
                 </div>
             </div>
             <div class="details">
-                <span class="paddler">
-                    @paddle.Paddler.UserDetails.FirstName
+                <span class="paddler">                    
+                    <a href="@Url.Action("Details", "Paddle", new {id = @paddle.Id})">@paddle.Paddler.UserDetails.FirstName</a> 
                 </span>
                 <span class="location">
                     @paddle.Location
