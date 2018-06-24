@@ -109,9 +109,9 @@ namespace PaddleHub.Controllers
         public ActionResult Details(int id)
         {
             var paddle = context.Paddles
-                .Where(p => p.Id == id)
                 .Include(p => p.Paddler)
-                .Include(p => p.Paddler.UserDetails);
+                .Include(p => p.Paddler.UserDetails)
+                .Single(p => p.Id == id);
 
             return View(paddle);
         }
