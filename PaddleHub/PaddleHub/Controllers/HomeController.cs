@@ -72,7 +72,7 @@ namespace PaddleHub.Controllers
             {
                 upcomingPaddles = upcomingPaddles
                     .Where(p =>
-                        p.Paddler.UserDetails.Name().Contains(query) ||
+                        p.Paddler.UserDetails.FirstName.Contains(query) ||
                         p.Location.Contains(query) ||
                         p.PaddleType.Name.Contains(query));
             }
