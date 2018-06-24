@@ -111,9 +111,16 @@ namespace PaddleHub.Controllers
             var paddle = context.Paddles
                 .Include(p => p.Paddler)
                 .Include(p => p.Paddler.UserDetails)
+                .Include(p => p.Attendances)
                 .Single(p => p.Id == id);
 
-            return View(paddle);
+            var viewModel = new PaddleDetails
+            {
+                Paddle         = paddle,
+                UserAuthorised = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }
 
         [Authorize]
