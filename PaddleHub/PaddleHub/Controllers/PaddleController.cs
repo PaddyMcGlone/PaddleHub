@@ -116,8 +116,8 @@ namespace PaddleHub.Controllers
 
             var viewModel = new PaddleDetails
             {
-                Paddle         = paddle,
-                UserAuthorised = User.Identity.IsAuthenticated
+                Paddle          = paddle,
+                UserAuthorised  = User.Identity.IsAuthenticated,                    
             };
 
             return View(viewModel);

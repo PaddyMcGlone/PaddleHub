@@ -1,4 +1,5 @@
-﻿namespace PaddleHub.Models
+﻿
+namespace PaddleHub.Models
 {
     public class PaddleDetails
     {
@@ -12,10 +13,7 @@
         /// <summary>
         /// Gets or sets if the user has logged in.
         /// </summary>
-        public bool UserAuthorised { get; set; }
-
-        // Check attendance should become and extension method of paddler.
-        public bool AttendingPaddle { get { return CheckAttendance() }; set; }
+        public bool UserAuthorised { get; set; }        
 
         /// <summary>
         /// Gets or sets who the user is following.
@@ -24,8 +22,5 @@
 
         #endregion
 
-        #region Methods
-        
-        #endregion
     }
 }

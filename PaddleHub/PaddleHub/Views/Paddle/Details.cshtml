@@ -1,4 +1,5 @@
-﻿@model PaddleHub.Models.Paddle
+﻿@using Microsoft.AspNet.Identity
+@model PaddleHub.Models.Paddle
 
 
 @{
@@ -9,4 +10,7 @@
 
 <h4>Is listing a paddle event at @Model.Location, on @Model.DateTime.Date.ToString("D") </h4>
 
-@if(@Model.Attendances.Contains())
+@if (Model.Attendances.Any(a => a.AttendeeId == User.Identity.GetUserId()))
+{
+    <p>You are currently attending this event.</p>
+}
