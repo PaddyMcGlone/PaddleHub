@@ -109,6 +109,8 @@ h6,
 
 #SearchPaddles {
     width: 300px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 .form-group {
