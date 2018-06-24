@@ -1,5 +1,7 @@
 ﻿
-namespace PaddleHub.Models
+using PaddleHub.Models;
+
+namespace PaddleHub.ViewModels
 {
     public class PaddleDetails
     {

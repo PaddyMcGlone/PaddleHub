@@ -1,16 +1,26 @@
 ﻿@using Microsoft.AspNet.Identity
-@model PaddleHub.Models.Paddle
+@model PaddleHub.ViewModels.PaddleDetails
 
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.Paddler.UserDetails.Name()</h2>
+<div>
+    <h1>
+        @Model.Paddle.Paddler.UserDetails.Name()
+        @if (Model.UserAuthorised)
+        {
+            <button class="btn btn-default btn-sm js-toggle-follow" id="follow" data-id="@Model.Paddle.Paddler.Id">Follow Paddler?</button>
+        }        
+    </h1>
+</div>
 
-<h4>Is listing a paddle event at @Model.Location, on @Model.DateTime.Date.ToString("D") </h4>
+<h4>Is listing a paddle event at @Model.Paddle.Location, on @Model.Paddle.DateTime.Date.ToString("D") </h4>
 
-@if (Model.Attendances.Any(a => a.AttendeeId == User.Identity.GetUserId()))
+@if (Model.UserAuthorised && 
+     Model.Paddle.Attendances
+         .Any(a => a.AttendeeId == User.Identity.GetUserId()))
 {
     <p>You are currently attending this event.</p>
 }
