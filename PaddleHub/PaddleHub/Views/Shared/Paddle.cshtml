@@ -32,7 +32,7 @@
             </div>
             <div class="details">
                 <span class="paddler">                    
-                    <a href="@Url.Action("Details", "Paddle", new {id = @paddle.Id})">@paddle.Paddler.UserDetails.FirstName</a> 
+                    <a href="@Url.Action("Details", "Paddle", new {id = @paddle.Id})">@paddle.Paddler.UserDetails.Name()</a> 
                 </span>
                 <span class="location">
                     @paddle.Location
