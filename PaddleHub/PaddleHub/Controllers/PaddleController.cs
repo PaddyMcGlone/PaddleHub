@@ -106,6 +106,16 @@ namespace PaddleHub.Controllers
             return View(paddles);
         }
 
+        public ActionResult Details(int id)
+        {
+            var paddle = context.Paddles
+                .Where(p => p.Id == id)
+                .Include(p => p.Paddler)
+                .Include(p => p.Paddler.UserDetails);
+
+            return View(paddle);
+        }
+
         [Authorize]
         public ActionResult Attending()
         {
