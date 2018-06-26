@@ -116,12 +116,15 @@ namespace PaddleHub.Controllers
             if (paddle == null) 
                 return HttpNotFound();
 
+            var isAuthenticated = User.Identity.IsAuthenticated;
+
             var viewModel = new PaddleDetailsViewModel
             {
-                Paddle = paddle
+                Paddle = paddle,
+                isAuthenticated = isAuthenticated
             };
 
-            if (User.Identity.IsAuthenticated)
+            if (isAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
 

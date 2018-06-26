@@ -22,6 +22,12 @@ namespace PaddleHub.ViewModels
         /// </summary>
         public bool isFollowing { get; set; }
 
+
+        /// <summary>
+        /// Gets or sets if the user is currently logged in.
+        /// </summary>
+        public bool isAuthenticated { get; set; }
+
         #endregion
 
     }
