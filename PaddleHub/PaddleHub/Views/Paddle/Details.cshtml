@@ -29,16 +29,16 @@
 {
     <script>
         $(document).ready(function() {
-            $("js-toggle-follow").click(function(e) {
+            $(".js-toggle-follow").click(function(e) {
                 var button = $(e.target);
-                $.post("api/following", { "followeeId": button.attr("data-id") })
+                $.post("/api/following", { "FolloweeId": button.attr("data-id") })
                     .done(function() {
-                        button.removeClass("btn-default").addClass("btn-info").text("Following paddler");
+                        button.removeClass("btn-default").addClass("btn-info").text("Following Paddler");
                     })
                     .fail(function() {
                         alert("Something went wrong");
                     });
-            })
+            });
         })
     </script>
 }
