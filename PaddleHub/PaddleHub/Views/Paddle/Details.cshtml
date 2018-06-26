@@ -24,3 +24,21 @@
 {
     <p>You are currently attending this event.</p>
 }
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("js-toggle-follow").click(function(e) {
+                var button = $(e.target);
+                $.post("api/following", { "followeeId": button.attr("data-id") })
+                    .done(function() {
+                        button.removeClass("btn-default").addClass("btn-info").text("Following paddler");
+                    })
+                    .fail(function() {
+                        alert("Something went wrong");
+                    });
+            })
+        })
+    </script>
+}
