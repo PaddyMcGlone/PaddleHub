@@ -111,14 +111,26 @@ namespace PaddleHub.Controllers
             var paddle = context.Paddles
                 .Include(p => p.Paddler)
                 .Include(p => p.Paddler.UserDetails)
-                .Include(p => p.Attendances)
-                .Single(p => p.Id == id);
+                .SingleOrDefault(p => p.Id == id);
 
-            var viewModel = new PaddleDetails
+            if (paddle == null) 
+                return HttpNotFound();
+
+            var viewModel = new PaddleDetailsViewModel
             {
-                Paddle          = paddle,
-                UserAuthorised  = User.Identity.IsAuthenticated,                    
+                Paddle = paddle
             };
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+
+                viewModel.isAttending = context.Attendances
+                    .Any(a => a.PaddleID == id && a.AttendeeId == userId);
+
+                viewModel.isFollowing = context.Followings
+                    .Any(f => f.FolloweeId == paddle.PaddlerId && f.FollowerId == userId);
+            }            
 
             return View(viewModel);
         }
