@@ -55,7 +55,8 @@ namespace PaddleHub.Controllers
                 UpcomingPaddles = upcomingPaddles,
                 UserAuthorised  = User.Identity.IsAuthenticated,
                 Heading         = "Upcoming paddles",
-                SearchTerm      = query   
+                SearchTerm      = query,
+                attendances     = attendances
             };
 
             return View("Paddle", viewModel);

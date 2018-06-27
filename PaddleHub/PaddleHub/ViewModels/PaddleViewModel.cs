@@ -27,5 +27,10 @@ namespace PaddleHub.ViewModels
         /// Gets or sets the searching term.
         /// </summary>
         public string SearchTerm { get; set; }
+
+        /// <summary>
+        /// Gets or sets the attendance lookup property.
+        /// </summary>
+        public List<Attendance> attendances { get; set; }
     }
 }
