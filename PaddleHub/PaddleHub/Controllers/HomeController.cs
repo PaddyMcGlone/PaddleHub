@@ -1,4 +1,5 @@
-﻿using PaddleHub.Models;
+﻿using Microsoft.AspNet.Identity;
+using PaddleHub.Models;
 using PaddleHub.ViewModels;
 using System;
 using System.Data.Entity;
@@ -44,6 +45,10 @@ namespace PaddleHub.Controllers
                     .Where(p => p.DateTime > DateTime.Now);
 
             upcomingPaddles = FilterUpcomingPaddles(query, upcomingPaddles);
+
+            var userId = User.Identity.GetUserId();
+            var attendances = _context.Attendances.Where(a => a.AttendeeId == userId &&
+                                                              a.Paddle.DateTime > DateTime.Now).ToList();
 
             var viewModel = new PaddleViewModel
             {
