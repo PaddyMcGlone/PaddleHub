@@ -1,5 +1,6 @@
 ﻿using PaddleHub.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PaddleHub.ViewModels
 {
@@ -27,5 +28,10 @@ namespace PaddleHub.ViewModels
         /// Gets or sets the searching term.
         /// </summary>
         public string SearchTerm { get; set; }
+
+        /// <summary>
+        /// Gets or sets the attendances lookup property.
+        /// </summary>
+        public ILookup<int, Attendance> Attendances { get; set; }
     }
 }
