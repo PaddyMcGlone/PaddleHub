@@ -47,8 +47,10 @@ namespace PaddleHub.Controllers
             upcomingPaddles = FilterUpcomingPaddles(query, upcomingPaddles);
 
             var userId = User.Identity.GetUserId();
-            var attendances = _context.Attendances.Where(a => a.AttendeeId == userId &&
-                                                              a.Paddle.DateTime > DateTime.Now).ToList();
+            var attendances = _context.Attendances
+                .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
+                .ToList()
+                .ToLookup(a => a.PaddleID);
 
             var viewModel = new PaddleViewModel
             {
@@ -56,7 +58,7 @@ namespace PaddleHub.Controllers
                 UserAuthorised  = User.Identity.IsAuthenticated,
                 Heading         = "Upcoming paddles",
                 SearchTerm      = query,
-                attendances     = attendances
+                Attendances     = attendances
             };
 
             return View("Paddle", viewModel);
