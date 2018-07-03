@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Web.Http;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using PaddleHub.DTOs;
 using PaddleHub.Models;
+using System.Linq;
+using System.Web.Http;
 
 namespace PaddleHub.Controllers.API
 {
@@ -44,6 +44,23 @@ namespace PaddleHub.Controllers.API
             };
 
             _context.Attendances.Add(attendance);
+            _context.SaveChanges();
+            return Ok(200);
+        }
+
+        /// <summary>
+        /// Remove an attendance
+        /// </summary>
+        /// <param name="id">The Paddle id</param>
+        /// <returns></returns>
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var attendance = _context.Attendances.SingleOrDefault(a => a.PaddleID == id && a.AttendeeId == userId);
+            if (attendance == null) return BadRequest("No attendance recorded for this event");
+
+            _context.Attendances.Remove(attendance);
             _context.SaveChanges();
             return Ok(200);
         }
