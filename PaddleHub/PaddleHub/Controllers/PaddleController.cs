@@ -151,11 +151,17 @@ namespace PaddleHub.Controllers
                 .Include(g => g.PaddleType)
                 .ToList();
 
+            var attendances = context.Attendances
+                .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
+                .ToList()
+                .ToLookup(a => a.PaddleID);
+
             var viewModel = new PaddleViewModel
             {
                 UpcomingPaddles = paddles,
                 UserAuthorised  = User.Identity.IsAuthenticated,
-                Heading         = "Paddles Im Attending" 
+                Heading         = "Paddles Im Attending",
+                Attendances     = attendances
             };
 
             return View("Paddle", viewModel);
