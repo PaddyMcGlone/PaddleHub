@@ -57,7 +57,9 @@ namespace PaddleHub.Controllers.API
         public IHttpActionResult Delete(int id)
         {
             var userId = User.Identity.GetUserId();
-            var attendance = _context.Attendances.SingleOrDefault(a => a.PaddleID == id && a.AttendeeId == userId);
+            var attendance = _context.Attendances
+                .SingleOrDefault(a => a.PaddleID == id && a.AttendeeId == userId);
+            
             if (attendance == null) return BadRequest("No attendance recorded for this event");
 
             _context.Attendances.Remove(attendance);
