@@ -11,3 +11,4 @@
 /// <reference path="bootbox.min.js" />
 /// <reference path="underscore-min.js" />
 /// <reference path="moment.min.js" />
+/// <reference path="app/app.js" />
