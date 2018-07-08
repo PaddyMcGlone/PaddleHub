@@ -1,24 +1,22 @@
 ﻿var PaddleController = function() {
 
     // The revealing module pattern
-    var init = function() {
+    var init = function () {
         // We have promoted the global function into a module.
         $(".js-toggle-attend").click(toggleAttendance);
-    }
+    };
 
     var toggleAttendance = function(e) {
             var button = $(e.target);
             if (button.hasClass("btn-default")) {
                 $.post("/api/attendances", { "PaddleId": button.attr("data-id") })
-                    .done(function () {
+                    .done(function() {
                         button
                             .removeClass("btn-default")
                             .addClass("btn-info")
                             .text("Attending");
                     })
-                    .fail(function () {
-                        alert("Something went wrong");
-                    });
+                    .fail(fail);
             } else {
                 $.ajax({
                         url: "/api/attendances/" + button.attr("data-id"),
@@ -30,12 +28,13 @@
                             .addClass("btn-default")
                             .text("Add to calender");
                     })
-                    .fail(function () {
-                        alert("Something went wrong");
-                    });
+                    .fail(fail);
             }
-        };
     };
+   
+    var fail = function() {
+        alert("Something went wrong");
+    }
 
     return{
         init: init
