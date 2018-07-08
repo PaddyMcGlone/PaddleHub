@@ -1,9 +1,12 @@
 ﻿var PaddleController = function() {
 
     // The revealing module pattern
-    var init = function () {
+    var init = function() {
         // We have promoted the global function into a module.
-        $(".js-toggle-attend").click(function (e) {
+        $(".js-toggle-attend").click(toggleAttendance);
+    }
+
+    var toggleAttendance = function(e) {
             var button = $(e.target);
             if (button.hasClass("btn-default")) {
                 $.post("/api/attendances", { "PaddleId": button.attr("data-id") })
@@ -31,7 +34,7 @@
                         alert("Something went wrong");
                     });
             }
-        });
+        };
     };
 
     return{
