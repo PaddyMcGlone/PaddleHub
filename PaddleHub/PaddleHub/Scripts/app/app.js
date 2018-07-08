@@ -1,11 +1,12 @@
 ﻿var PaddleController = function() {
-    
+    var button;
+
     var init = function () {        
         $(".js-toggle-attend").click(toggleAttendance);
     };
 
     var toggleAttendance = function(e) {
-            var button = $(e.target);
+            button = $(e.target);
             if (button.hasClass("btn-default")) {
                 $.post("/api/attendances", { "PaddleId": button.attr("data-id") })
                     .done(process)
@@ -21,7 +22,7 @@
     };
    
     var process = function () {
-        var text = button.text == "Attending" ? "Add to calender" : "Attending";
+        var text = button.text() == "Attending" ? "Add to calender" : "Attending";
         button.toggleClass("btn-info").toggleClass("btn-default").text(text);
     }
 
