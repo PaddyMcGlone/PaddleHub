@@ -12,22 +12,7 @@
         else 
             deleteAttendance();
         
-    };
-
-    var createAttendance = function() {
-        $.post("/api/attendances", { "PaddleId": button.attr("data-id") })
-            .done(process)
-            .fail(error);
-    }
-
-    var deleteAttendance = function() {
-        $.ajax({
-                url: "/api/attendances/" + button.attr("data-id"),
-                method: "DELETE"
-            })
-            .done(process)
-            .fail(error);
-    }
+    };    
    
     var process = function () {
         var text = button.text() == "Attending" ? "Add to calender" : "Attending";
@@ -42,4 +27,27 @@
         init: init
     }
 
+}();
+
+var attendanceService = function (paddleId, process, error) {
+
+    var createAttendance = function () {
+        $.post("/api/attendances", { "PaddleId": paddleId })
+            .done(process)
+            .fail(error);
+    }
+
+    var deleteAttendance = function () {
+        $.ajax({
+                url: "/api/attendances/" + paddleId,
+                method: "DELETE"
+            })
+            .done(process)
+            .fail(error);
+    }
+
+    new {
+        CreateAttendance: createAttendance,
+        DeleteAttendance: deleteAttendance
+};
 }();
