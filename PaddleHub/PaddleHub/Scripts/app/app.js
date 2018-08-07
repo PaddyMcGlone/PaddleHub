@@ -7,19 +7,27 @@
 
     var toggleAttendance = function(e) {
             button = $(e.target);
-            if (button.hasClass("btn-default")) {
-                $.post("/api/attendances", { "PaddleId": button.attr("data-id") })
-                    .done(process)
-                    .fail(error);
-            } else {
-                $.ajax({
-                        url: "/api/attendances/" + button.attr("data-id"),
-                        method: "DELETE"
-                    })
-                    .done(process)
-                    .fail(error);
-            }
+        if (button.hasClass("btn-default")) {
+            createAttendance();
+        } else {
+            deleteAttendance();
+        }
     };
+
+    var createAttendance = function() {
+        $.post("/api/attendances", { "PaddleId": button.attr("data-id") })
+            .done(process)
+            .fail(error);
+    }
+
+    var deleteAttendance = function() {
+        $.ajax({
+                url: "/api/attendances/" + button.attr("data-id"),
+                method: "DELETE"
+            })
+            .done(process)
+            .fail(error);
+    }
    
     var process = function () {
         var text = button.text() == "Attending" ? "Add to calender" : "Attending";
