@@ -7,11 +7,11 @@
 
     var toggleAttendance = function(e) {
             button = $(e.target);
-        if (button.hasClass("btn-default")) {
+        if (button.hasClass("btn-default")) 
             createAttendance();
-        } else {
+        else 
             deleteAttendance();
-        }
+        
     };
 
     var createAttendance = function() {
