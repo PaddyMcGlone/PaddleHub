@@ -370,6 +370,8 @@
     <Content Include="Scripts\ai.1.0.7-build00691.js" />
     <Content Include="Scripts\ai.1.0.7-build00691.min.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controllers\PaddleController.js" />
+    <Content Include="Scripts\app\services\AttendanceService.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

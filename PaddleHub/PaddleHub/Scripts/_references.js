@@ -12,3 +12,5 @@
 /// <reference path="underscore-min.js" />
 /// <reference path="moment.min.js" />
 /// <reference path="app/app.js" />
+/// <reference path="app/services/attendanceservice.js" />
+/// <reference path="app/controllers/paddlecontroller.js" />
