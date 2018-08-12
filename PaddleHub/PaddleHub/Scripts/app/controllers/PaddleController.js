@@ -22,8 +22,8 @@
     };    
 
     var init = function (container) {
-        $(container).on("click", ".js-toggle-attend", toggleAttendance);
-    };
+        $(container).on("click", ".js-toggle-attend", toggleAttendance);      
+    };  
 
     return {
         init: init
