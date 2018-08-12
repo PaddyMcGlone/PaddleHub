@@ -373,6 +373,7 @@
     <Content Include="Scripts\app\controllers\PaddleController.js" />
     <Content Include="Scripts\app\controllers\UserController.js" />
     <Content Include="Scripts\app\services\AttendanceService.js" />
+    <Content Include="Scripts\app\services\FollowService.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
