@@ -18,7 +18,7 @@
     </div> 
 }
 
-<ul id="container" class="paddles vOffSet5">
+<ul id="paddles" class="paddles vOffSet5">
     @foreach (var paddle in Model.UpcomingPaddles)
     {
         <li>
@@ -62,9 +62,9 @@
 @section scripts
 {
     <script>
-        $(document).ready(function() {
-
-            PaddleController.init("#container");
+        $(document).ready(function () {
+            
+            PaddleController.init("#paddles");
 
             $(".js-toggle-follow").click(function(e) {
                 var button = $(e.target);

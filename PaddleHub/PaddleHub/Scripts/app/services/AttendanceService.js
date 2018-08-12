@@ -8,7 +8,7 @@
 
     var deleteAttendance = function() {
         $.ajax({
-                url: "/api/attendances/" + paddleId,
+            url: "/api/attendances/" + paddleId,
                 method: "DELETE"
             })
             .done(process)
