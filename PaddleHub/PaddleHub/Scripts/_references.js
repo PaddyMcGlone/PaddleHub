@@ -14,3 +14,4 @@
 /// <reference path="app/app.js" />
 /// <reference path="app/services/attendanceservice.js" />
 /// <reference path="app/controllers/paddlecontroller.js" />
+/// <reference path="app/controllers/usercontroller.js" />
