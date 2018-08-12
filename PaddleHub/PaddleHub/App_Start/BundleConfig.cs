@@ -9,10 +9,9 @@ namespace PaddleHub
         {
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/app.js",
-                "~/Scripts/app/Controllers/PaddleController.js",
-                "~/Scripts/app/Services/AttendanceService.js"
+                "~/Scripts/app/Services/AttendanceService.js",
+                "~/Scripts/app/Controllers/PaddleController.js"
                 ));
-
 
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
