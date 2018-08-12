@@ -1,7 +1,7 @@
 ﻿var PaddleController = function (attendanceService) {
     var button;
 
-    var init = function () {
+    var init = function (container) {
         $(container).on("click", "js-toggle-attend", toggleAttendance);
     };
 
