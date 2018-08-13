@@ -1,4 +1,4 @@
-﻿var UserController = function() {
+﻿var UserController = function(followService) {
     var button;
 
     var process = function() {
@@ -28,4 +28,4 @@
         Init : init
     }
 
-}();
+}(FollowService);
