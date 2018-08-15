@@ -144,18 +144,12 @@ namespace PaddleHub.Controllers
         {
             var userId = User.Identity.GetUserId();
 
-            // command selects a list of paddles from the attendance object
-            var paddles = GetPaddlesUserIsAttending(userId);
-
-            var attendances = GetFutureAttendances(userId)
-                .ToLookup(a => a.PaddleID);
-
             var viewModel = new PaddleViewModel
             {
-                UpcomingPaddles = paddles,
+                UpcomingPaddles = GetPaddlesUserIsAttending(userId),
                 UserAuthorised  = User.Identity.IsAuthenticated,
                 Heading         = "Paddles Im Attending",
-                Attendances     = attendances
+                Attendances     = GetFutureAttendances(userId).ToLookup(a => a.PaddleID)
             };
 
             return View("Paddle", viewModel);
