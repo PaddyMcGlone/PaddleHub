@@ -2,6 +2,7 @@
 using PaddleHub.Models;
 using PaddleHub.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -144,16 +145,9 @@ namespace PaddleHub.Controllers
             var userId = User.Identity.GetUserId();
 
             // command selects a list of paddles from the attendance object
-            var paddles = context.Attendances              
-                .Where(a => a.AttendeeId == userId)
-                .Select(a => a.Paddle)       
-                .Include(g => g.Paddler.UserDetails)
-                .Include(g => g.PaddleType)
-                .ToList();
+            var paddles = GetPaddlesUserIsAttending(userId);
 
-            var attendances = context.Attendances
-                .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
-                .ToList()
+            var attendances = GetFutureAttendances(userId)
                 .ToLookup(a => a.PaddleID);
 
             var viewModel = new PaddleViewModel
@@ -165,8 +159,27 @@ namespace PaddleHub.Controllers
             };
 
             return View("Paddle", viewModel);
-        }
+        }        
+
         #region Helper methods
+
+        private List<Attendance> GetFutureAttendances(string userId)
+        {
+            return context.Attendances
+                .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
+                .ToList();
+        }
+
+        private List<Paddle> GetPaddlesUserIsAttending(string userId)
+        {
+            return context.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Paddle)
+                .Include(g => g.Paddler.UserDetails)
+                .Include(g => g.PaddleType)
+                .ToList();
+        }
+
 
         /// <summary>
         /// Mapping helper method - will be moved out in future work.

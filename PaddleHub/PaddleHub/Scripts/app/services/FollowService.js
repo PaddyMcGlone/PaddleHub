@@ -15,7 +15,6 @@
             .fail(error);
     }
 
-
     return {
         CreateFollower: createFollower,
         DeleteFollower: deleteFollower

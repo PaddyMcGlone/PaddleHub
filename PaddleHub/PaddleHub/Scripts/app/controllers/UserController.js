@@ -20,12 +20,12 @@
             followService.DeleteFollower(userId, process, error);            
     };
 
-    var init = function() {
+    var init = function(container) {
         $(container).on("click", ".js-toggle-follow", toggleFollow);
     };
 
     return {
-        Init : init
+        init: init
     }
 
 }(FollowService);
