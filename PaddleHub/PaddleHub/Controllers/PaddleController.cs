@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using PaddleHub.Models;
+using PaddleHub.Repositories;
 using PaddleHub.ViewModels;
 using System;
 using System.Data.Entity;
@@ -11,10 +12,14 @@ namespace PaddleHub.Controllers
     public class PaddleController : Controller
     {
         private readonly ApplicationDbContext context;
+        private readonly PaddleRepository paddleRepository;
+        private readonly AttendanceRepository attendanceRepository;
 
         public PaddleController()
         {
             context = new ApplicationDbContext();
+            paddleRepository = new PaddleRepository(context);
+            attendanceRepository = new AttendanceRepository(context);            
         }
         
         [Authorize]
@@ -145,10 +150,10 @@ namespace PaddleHub.Controllers
 
             var viewModel = new PaddleViewModel
             {
-                UpcomingPaddles = GetPaddlesUserIsAttending(userId),
+                UpcomingPaddles = paddleRepository.GetPaddlesUserIsAttending(userId),
                 UserAuthorised  = User.Identity.IsAuthenticated,
                 Heading         = "Paddles Im Attending",
-                Attendances     = GetFutureAttendances(userId).ToLookup(a => a.PaddleID)
+                Attendances     = attendanceRepository.GetFutureAttendances(userId).ToLookup(a => a.PaddleID)
             };
 
             return View("Paddle", viewModel);
