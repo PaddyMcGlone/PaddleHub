@@ -303,6 +303,8 @@
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Models\UserNotifcation.cs" />
+    <Compile Include="Repositories\AttendanceRepository.cs" />
+    <Compile Include="Repositories\PaddleRepository.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\PaddleDetailsViewModel.cs" />

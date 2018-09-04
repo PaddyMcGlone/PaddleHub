@@ -2,7 +2,6 @@
 using PaddleHub.Models;
 using PaddleHub.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -155,25 +154,7 @@ namespace PaddleHub.Controllers
             return View("Paddle", viewModel);
         }        
 
-        #region Helper methods
-
-        private List<Attendance> GetFutureAttendances(string userId)
-        {
-            return context.Attendances
-                .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
-                .ToList();
-        }
-
-        private List<Paddle> GetPaddlesUserIsAttending(string userId)
-        {
-            return context.Attendances
-                .Where(a => a.AttendeeId == userId)
-                .Select(a => a.Paddle)
-                .Include(g => g.Paddler.UserDetails)
-                .Include(g => g.PaddleType)
-                .ToList();
-        }
-
+        #region Helper methods                
 
         /// <summary>
         /// Mapping helper method - will be moved out in future work.

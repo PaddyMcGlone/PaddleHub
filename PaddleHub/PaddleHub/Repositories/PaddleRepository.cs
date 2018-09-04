@@ -1,11 +1,27 @@
-﻿using System;
+﻿using PaddleHub.Models;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace PaddleHub.Repositories
 {
     public class PaddleRepository
     {
+        private readonly ApplicationDbContext _context;
+
+        public PaddleRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        private List<Paddle> GetPaddlesUserIsAttending(string userId)
+        {
+            return _context.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Paddle)
+                .Include(g => g.Paddler.UserDetails)
+                .Include(g => g.PaddleType)
+                .ToList();
+        }
     }
 }
