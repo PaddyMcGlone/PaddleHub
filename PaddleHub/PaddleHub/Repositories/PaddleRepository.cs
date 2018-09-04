@@ -14,7 +14,7 @@ namespace PaddleHub.Repositories
             _context = context;
         }
 
-        private List<Paddle> GetPaddlesUserIsAttending(string userId)
+        public IEnumerable<Paddle> GetPaddlesUserIsAttending(string userId)
         {
             return _context.Attendances
                 .Where(a => a.AttendeeId == userId)

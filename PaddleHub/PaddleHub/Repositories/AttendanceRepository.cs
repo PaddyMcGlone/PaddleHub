@@ -14,7 +14,7 @@ namespace PaddleHub.Repositories
             _context = context;
         }
 
-        private IEnumerable<Attendance> GetFutureAttendances(string userId)
+        public IEnumerable<Attendance> GetFutureAttendances(string userId)
         {
             return _context.Attendances
                 .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
