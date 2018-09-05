@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using PaddleHub.Models;
+using PaddleHub.Repositories;
 using PaddleHub.ViewModels;
 using System;
 using System.Data.Entity;
@@ -11,6 +12,7 @@ namespace PaddleHub.Controllers
     public class HomeController : Controller
     {
         public ApplicationDbContext _context;
+        public AttendanceRepository AttendanceRepository;
 
         #region Constructor
 
@@ -20,6 +22,7 @@ namespace PaddleHub.Controllers
         public HomeController()
         {
             _context = new ApplicationDbContext();
+            AttendanceRepository = new AttendanceRepository(_context);
         }
 
         #endregion        
@@ -46,10 +49,8 @@ namespace PaddleHub.Controllers
 
             upcomingPaddles = FilterUpcomingPaddles(query, upcomingPaddles);
 
-            var userId = User.Identity.GetUserId();
-            var attendances = _context.Attendances
-                .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
-                .ToList()
+            var attendances = AttendanceRepository
+                .GetFutureAttendances(User.Identity.GetUserId())
                 .ToLookup(a => a.PaddleID);
 
             var viewModel = new PaddleViewModel
