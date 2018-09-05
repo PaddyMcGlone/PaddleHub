@@ -19,6 +19,6 @@ namespace PaddleHub.Repositories
             return _context.Attendances
                 .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
                 .ToList();
-        }
+        }                
     }
 }

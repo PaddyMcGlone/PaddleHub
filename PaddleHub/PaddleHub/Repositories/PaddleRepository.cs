@@ -23,5 +23,12 @@ namespace PaddleHub.Repositories
                 .Include(g => g.PaddleType)
                 .ToList();
         }
+
+        public Paddle GetPaddleWithAttendees(int paddleId)
+        {
+            return _context.Paddles
+                .Include(p => p.Attendances.Select(a => a.Attendee))
+                .SingleOrDefault(p => p.Id == paddleId);
+        }
     }
 }

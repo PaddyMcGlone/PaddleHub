@@ -82,11 +82,13 @@ namespace PaddleHub.Controllers
                 return View("PaddleForm", viewModel);
             }
 
-            var userId = User.Identity.GetUserId();
-            var paddle = context.Paddles
-                .Include(p => p.Attendances.Select(a => a.Attendee))
-                .Single(p => p.Id == viewModel.Id && p.PaddlerId == userId);
-            
+            var paddle = paddleRepository.GetPaddleWithAttendees(viewModel.Id);
+
+            if (paddle == null) return HttpNotFound();
+
+            if(paddle.PaddlerId != User.Identity.GetUserId()) 
+                return new HttpUnauthorizedResult();
+
             paddle.UpdateEvent(paddle.DateTime, paddle.Location);
 
             paddle.Location = viewModel.Location;
