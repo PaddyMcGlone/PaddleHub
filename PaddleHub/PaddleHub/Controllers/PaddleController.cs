@@ -13,14 +13,16 @@ namespace PaddleHub.Controllers
         private readonly ApplicationDbContext context;
         private readonly PaddleRepository paddleRepository;
         private readonly AttendanceRepository attendanceRepository;
+        private readonly FollowingRepository followingRepository;
         #endregion
 
         #region Constructor
         public PaddleController()
         {
-            context = new ApplicationDbContext();
-            paddleRepository = new PaddleRepository(context);
+            context              = new ApplicationDbContext();
+            paddleRepository     = new PaddleRepository(context);
             attendanceRepository = new AttendanceRepository(context);            
+            followingRepository  = new FollowingRepository(context);            
         }
         #endregion
 
@@ -124,13 +126,9 @@ namespace PaddleHub.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                var userId = User.Identity.GetUserId();
-
-                // Should you be mixing logic within the Repository?
-                viewModel.isAttending = attendanceRepository.isUserAttending(id, userId);
-
-                viewModel.isFollowing = context.Followings
-                    .Any(f => f.FolloweeId == paddle.PaddlerId && f.FollowerId == userId);
+                var userId = User.Identity.GetUserId();                
+                viewModel.isAttending = attendanceRepository.Retrieve(id, userId) != null;
+                viewModel.isFollowing = followingRepository.Retrieve(paddle.PaddlerId, userId) != null;                    
             }            
 
             return View(viewModel);

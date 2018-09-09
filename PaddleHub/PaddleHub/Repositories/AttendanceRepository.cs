@@ -22,12 +22,11 @@ namespace PaddleHub.Repositories
                 .ToList();
         }
 
-        public bool isUserAttending(int paddleId, string userId)
+        public Attendance Retrieve(int paddleId, string userId)
         {
             return _context.Attendances
-                .Any(a => a.PaddleID == paddleId &&
-                          a.AttendeeId == userId);
-
+                .SingleOrDefault(a => a.PaddleID == paddleId &&
+                                      a.AttendeeId == userId);
         }
     }
 }
