@@ -1,4 +1,5 @@
 ﻿using PaddleHub.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -29,6 +30,23 @@ namespace PaddleHub.Repositories
             return _context.Paddles
                 .Include(p => p.Attendances.Select(a => a.Attendee))
                 .SingleOrDefault(p => p.Id == paddleId);
+        }
+
+        public Paddle Retrieve(int paddleId)
+        {
+            return _context.Paddles
+                .Include(p => p.Paddler)
+                .Include(p => p.Paddler.UserDetails)
+                .SingleOrDefault(p => p.Id == paddleId);
+        }
+
+        public List<Paddle> RetrieveAllFuturePaddles(string userId)
+        {
+            return _context.Paddles
+                .Where(p => p.PaddlerId == userId &&
+                       p.DateTime >= DateTime.Now)
+                .Include(p => p.PaddleType)
+                .ToList();
         }
     }
 }

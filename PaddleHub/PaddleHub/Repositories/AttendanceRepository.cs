@@ -17,8 +17,17 @@ namespace PaddleHub.Repositories
         public IEnumerable<Attendance> GetFutureAttendances(string userId)
         {
             return _context.Attendances
-                .Where(a => a.AttendeeId == userId && a.Paddle.DateTime > DateTime.Now)
+                .Where(a => a.AttendeeId == userId &&
+                            a.Paddle.DateTime > DateTime.Now)
                 .ToList();
-        }                
+        }
+
+        public bool isUserAttending(int paddleId, string userId)
+        {
+            return _context.Attendances
+                .Any(a => a.PaddleID == paddleId &&
+                          a.AttendeeId == userId);
+
+        }
     }
 }

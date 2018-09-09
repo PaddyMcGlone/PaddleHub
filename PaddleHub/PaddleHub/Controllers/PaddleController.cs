@@ -2,8 +2,6 @@
 using PaddleHub.Models;
 using PaddleHub.Repositories;
 using PaddleHub.ViewModels;
-using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,17 +9,22 @@ namespace PaddleHub.Controllers
 {
     public class PaddleController : Controller
     {
+        #region Fields
         private readonly ApplicationDbContext context;
         private readonly PaddleRepository paddleRepository;
         private readonly AttendanceRepository attendanceRepository;
+        #endregion
 
+        #region Constructor
         public PaddleController()
         {
             context = new ApplicationDbContext();
             paddleRepository = new PaddleRepository(context);
             attendanceRepository = new AttendanceRepository(context);            
         }
-        
+        #endregion
+
+        #region Methods
         [Authorize]
         public ActionResult Create()
         {
@@ -54,9 +57,8 @@ namespace PaddleHub.Controllers
 
         [Authorize]
         public ActionResult Edit(int id)
-        {
-            var userId = User.Identity.GetUserId();
-            var paddle = context.Paddles.SingleOrDefault(p => p.Id == id && p.PaddlerId == userId);
+        {            
+            var paddle = paddleRepository.Retrieve(id);
 
             var viewModel = new PaddleFormViewModel
             {
@@ -104,39 +106,28 @@ namespace PaddleHub.Controllers
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
-            var paddles = context.Paddles
-                .Where(p => p.PaddlerId == userId 
-                            && p.DateTime >= DateTime.Now)
-                .Include(p => p.PaddleType)
-                .ToList();
+            var paddles = paddleRepository.RetrieveAllFuturePaddles(userId);
 
             return View(paddles);
         }
 
         public ActionResult Details(int id)
         {
-            var paddle = context.Paddles
-                .Include(p => p.Paddler)
-                .Include(p => p.Paddler.UserDetails)
-                .SingleOrDefault(p => p.Id == id);
-
-            if (paddle == null) 
-                return HttpNotFound();
-
-            var isAuthenticated = User.Identity.IsAuthenticated;
+            var paddle = paddleRepository.Retrieve(id);
+            if (paddle == null) return HttpNotFound();
 
             var viewModel = new PaddleDetailsViewModel
             {
                 Paddle = paddle,
-                isAuthenticated = isAuthenticated
+                isAuthenticated = User.Identity.IsAuthenticated
             };
 
-            if (isAuthenticated)
+            if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
 
-                viewModel.isAttending = context.Attendances
-                    .Any(a => a.PaddleID == id && a.AttendeeId == userId);
+                // Should you be mixing logic within the Repository?
+                viewModel.isAttending = attendanceRepository.isUserAttending(id, userId);
 
                 viewModel.isFollowing = context.Followings
                     .Any(f => f.FolloweeId == paddle.PaddlerId && f.FollowerId == userId);
@@ -159,9 +150,10 @@ namespace PaddleHub.Controllers
             };
 
             return View("Paddle", viewModel);
-        }        
+        }
+        #endregion
 
-        #region Helper methods                
+        #region Helper methods
 
         /// <summary>
         /// Mapping helper method - will be moved out in future work.
