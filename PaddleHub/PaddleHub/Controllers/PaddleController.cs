@@ -14,15 +14,17 @@ namespace PaddleHub.Controllers
         private readonly PaddleRepository paddleRepository;
         private readonly AttendanceRepository attendanceRepository;
         private readonly FollowingRepository followingRepository;
+        private readonly PaddleTypeRepository paddleTypeRepository;
         #endregion
 
         #region Constructor
         public PaddleController()
         {
-            context              = new ApplicationDbContext();
-            paddleRepository     = new PaddleRepository(context);
-            attendanceRepository = new AttendanceRepository(context);            
-            followingRepository  = new FollowingRepository(context);            
+            context               = new ApplicationDbContext();
+            paddleRepository      = new PaddleRepository(context);
+            attendanceRepository  = new AttendanceRepository(context);            
+            followingRepository   = new FollowingRepository(context);            
+            paddleTypeRepository  = new PaddleTypeRepository(context);  
         }
         #endregion
 
@@ -32,8 +34,8 @@ namespace PaddleHub.Controllers
         {
             var viewModel = new PaddleFormViewModel
             {
-                Heading = "Create a paddle",
-                PaddleTypes = context.PaddleTypes.ToList()
+                Heading     = "Create a paddle",
+                PaddleTypes = paddleTypeRepository.RetrieveTypes()
             };
 
             return View("PaddleForm", viewModel);
@@ -44,8 +46,8 @@ namespace PaddleHub.Controllers
         public ActionResult Create(PaddleFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
-            {             
-                viewModel.PaddleTypes = context.PaddleTypes.ToList();
+            {
+                viewModel.PaddleTypes = paddleTypeRepository.RetrieveTypes();
                 return View("PaddleForm", viewModel);
             }
             
@@ -82,7 +84,7 @@ namespace PaddleHub.Controllers
         {
             if (!ModelState.IsValid)
             {
-                viewModel.PaddleTypes = context.PaddleTypes.ToList();
+                viewModel.PaddleTypes = paddleTypeRepository.RetrieveTypes();
                 return View("PaddleForm", viewModel);
             }
 
@@ -152,12 +154,7 @@ namespace PaddleHub.Controllers
         #endregion
 
         #region Helper methods
-
-        /// <summary>
-        /// Mapping helper method - will be moved out in future work.
-        /// </summary>
-        /// <param name="viewModel"></param>
-        /// <returns></returns>
+        
         private Paddle MapPaddle(PaddleFormViewModel viewModel)
         {
             return new Paddle

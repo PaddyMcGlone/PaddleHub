@@ -306,6 +306,7 @@
     <Compile Include="Repositories\AttendanceRepository.cs" />
     <Compile Include="Repositories\FollowingRepository.cs" />
     <Compile Include="Repositories\PaddleRepository.cs" />
+    <Compile Include="Repositories\PaddleTypeRepository.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\PaddleDetailsViewModel.cs" />
